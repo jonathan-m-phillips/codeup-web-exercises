@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Forms HTML Exercise</title>
+    </head>
+    <body>
+        <form method="POST" action="https://request-inspector.glitch.me/">
+
+            <label for="name">Enter your name: </label>
+            <input type="text" name="name" id="name" placeholder="Name"/>
+            <br/>
+            <label for="password">Enter your password: </label>
+            <input type="password" name="password" id="password" placeholder="Password"/>
+            <br/>
+
+            <textarea name="bio" id="bio" cols="30" rows="10" placeholder="Bio - Enter your text here."></textarea>
+            <br/>
+
+            <h4>How did you hear about this?</h4>
+
+            <!--
+            <input type="radio" name="howDidYouHear" id="billboard" value="billboard">
+            <label for="billboard">billboard</label>
+
+            <input type="radio" name="howDidYouHear" id="radioAdvertisement" value="radioAdvertisement">
+            <label for="radioAdvertisement">radio advertisement</label>
+
+            <input type="radio" name="howDidYouHear" id="internetAdvertisement" value="internetAdvertisement">
+            <label for="internetAdvertisement">internet advertisement</label>
+
+            <input type="radio" name="howDidYouHear" id="other" value="other">
+            <label for="other">other</label>
+            -->
+
+
+            <!--
+                If the inputs are given different names, you will be able to click multiple items, which you are not supposed to do.
+            -->
+
+
+            <!--
+            <input type="radio" name="1" id="billboard" value="billboard">
+            <label for="billboard">billboard</label>
+
+            <input type="radio" name="2" id="radioAdvertisement" value="radioAdvertisement">
+            <label for="radioAdvertisement">radio advertisement</label>
+
+            <input type="radio" name="3" id="internetAdvertisement" value="internetAdvertisement">
+            <label for="internetAdvertisement">internet advertisement</label>
+
+            <input type="radio" name="4" id="other" value="other">
+            <label for="other">other</label>
+            -->
+
+            <input type="checkbox" name="howDidYouHear" id="billboard" value="billboard">
+            <label for="billboard">billboard</label>
+
+            <input type="checkbox" name="howDidYouHear" id="radioAdvertisement" value="radioAdvertisement">
+            <label for="radioAdvertisement">radio advertisement</label>
+
+            <input type="checkbox" name="howDidYouHear" id="internetAdvertisement" value="internetAdvertisement">
+            <label for="internetAdvertisement">internet advertisement</label>
+
+            <input type="checkbox" name="howDidYouHear" id="other" value="other">
+            <label for="other">other</label>
+            <br/>
+            <br/>
+
+            <label for="dropdown">Select your browser:</label>
+            <select name="dropdown" id="dropdown">
+                <option value="safari">Safari</option>
+                <option value="chrome" selected>Google Chrome</option>
+                <option value="firefox">Mozilla Firefox</option>
+                <option value="edge">Microsoft Edge</option>
+            </select>
+            <br/>
+            <br/>
+
+            <button type="submit">Submit your form</button>
+
+        <!--
+            When switching POST to GET, the information is then present on the address bar.
+            When switching back to POST, the information is no longer posted onto the address bar.
+        -->
+
+        <!--
+            If there is no name in an input it will not put the value through on the backend.
+            I deleted the name with a radio button and it stays selected but will not be read in the backend.
+        -->
+
+        <!--
+            If you leave the id attribute out of an input, the label will not be able to work properly.
+            Label is connected from the for attribute to the id attribute in the input tag.
+            The buttons are not even eligible to click on.
+        -->
+        </form>
+    </body>
+</html>
