@@ -1,2 +1,57 @@
-.fancy-header {color: purple
+body {
+    background-color: #0F9D58;
+    background-image: url("../img/dots.jpeg");
+    background-repeat: repeat;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: blue;
+    text-decoration: underline;
+}
+
+table {
+    border: solid black 2px;
+    padding: 15px;
+}
+
+.table-content {
+    font-size: .9em;
+}
+
+.fancy-header {
+    color: purple;
+}
+
+.unordered-list {
+    list-style: square;
+}
+
+.ordered-list {
+    list-style: upper-roman;
+}
+
+#table-head{
+    text-decoration: underline;
+    font-size: 1.3em;
+}
+
+#to-top:link {
+    color: white;
+}
+
+#to-top:visited {
+    color: purple;
+}
+
+#to-top:hover {
+    color: blue;
+}
+
+#to-top:active {
+    color: black;
 }
