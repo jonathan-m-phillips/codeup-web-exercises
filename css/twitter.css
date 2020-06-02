@@ -38,8 +38,8 @@ a {
 .top-nav {
     background: var(--light-bg);
     width: 100%;
-    position: fixed;
     z-index: 1000;
+    position: fixed;
 }
 
 .nav {
@@ -73,13 +73,6 @@ a {
     top: 250px;
 }
 
-.profile-details {
-    float: left;
-    margin-right: .5em;
-    margin-left: .5em;
-    width: calc(25% - .5em);
-}
-
 .profile-items {
     list-style-type: none;
     padding: 0;
@@ -87,6 +80,13 @@ a {
 
 .profile-entry {
     margin: .5em;
+}
+
+.profile-details {
+    float: left;
+    margin-right: .5em;
+    margin-left: .5em;
+    width: calc(25% - .5em);
 }
 
 .timeline {
@@ -116,8 +116,8 @@ a {
     width: 100%;
     background-color: var(--light-bg);
     border-bottom-size: 1px;
-    border-bottom-style:solid;
-    border-bottom-color:  var(--separator-color);
+    border-bottom-style: solid;
+    border-bottom-color: var(--separator-color);
     padding: .5em;
     overflow: auto;
 }
@@ -130,15 +130,17 @@ a {
 
 .media-body {
     width: calc(100% - 50px);
+    float: right;
 }
 
 .container {
-    margin: 2em;
+    margin-top: 2em;
 }
 
 .btn-large {
     font-size: 1.3em;
     padding: 10px;
+    margin-right: 2px;
 }
 
 .img-circle {
@@ -149,6 +151,7 @@ a {
 .text-right {
     text-align: right;
 }
+
 .text-muted {
     color: var(--main-link-color);
 }
