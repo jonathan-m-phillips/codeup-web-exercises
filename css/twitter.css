@@ -86,21 +86,21 @@ a {
     float: left;
     margin-right: .5em;
     margin-left: .5em;
-    width: calc(25% - .5em);
+    width: calc(25% - 1em);
 }
 
 .timeline {
     float: left;
     margin-right: .5em;
     margin-left: .5em;
-    width: calc(48% - .5em);
+    width: calc(50% - 1em);
 }
 
 .who-to-follow {
     float: right;
     margin-right: .5em;
     margin-left: .5em;
-    width: calc(25% - .5em);
+    width: calc(25% - 1em);
 }
 
 .btn {
