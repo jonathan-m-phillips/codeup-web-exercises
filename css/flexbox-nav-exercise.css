@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', Work Sans;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+
+}
+
+nav {
+    background: lightgray;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+nav a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    padding: 1em;
+}
+
+nav a:hover {
+    color: blue;
+}
+
+.logo {
+    font-size: 3em;
+    padding-top: .2em;
+    padding-bottom: .2em;
+}
+
+.follow-us {
+    margin-left: auto;
+}
+
+.jobs {
+    margin-right: auto;
+}
