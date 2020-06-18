@@ -66,7 +66,7 @@ alert("You have earned $" + earned + ".");
 let classOpen = confirm("Is the class full?");
 let scheduleOpen = confirm("does this class work with your schedule?");
 
-if (classOpen == true && scheduleOpen == true) {
+if (classOpen === true && scheduleOpen === true) {
     alert("You may register.")
 } else {
     alert("You may not register.")
