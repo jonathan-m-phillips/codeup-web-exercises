@@ -14,6 +14,7 @@ let sayHello = function (name) {
 
 }
 
+sayHello("Jon");
 
 
 
