@@ -70,7 +70,7 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 
-let isTwo = function (num) {
+const isTwo = function (num) {
     if (num === 2) {
         return true;
     } else {
