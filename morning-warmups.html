@@ -114,46 +114,61 @@
             //
 
             //Print the first ten even numbers at least 3 times (preferably using different strategies)
+            //
+            // console.log(2);
+            // console.log(4);
+            // console.log(6);
+            // console.log(8);
+            // console.log(10);
+            // console.log(12);
+            // console.log(14);
+            // console.log(16);
+            // console.log(18);
+            // console.log(20);
+            //
+            // let num = 2;
+            // console.log(num);
+            // num+=2;
+            // console.log(num);
+            // num+=2;
+            // console.log(num);
+            // num+=2;
+            // console.log(num);
+            // num+=2;
+            // console.log(num);
+            // num+=2;
+            // console.log(num);
+            // num+=2;
+            // console.log(num);
+            // num+=2;
+            // console.log(num);
+            // num+=2;
+            // console.log(num);
+            // num+=2;
+            // console.log(num);
+            // num+=2;
+            //
+            //
+            // for (let i = 0; i < 21; i++) {
+            //     if (i % 2 === 0) {
+            //         console.log(i);
+            //     }
+            // }
 
-            console.log(2);
-            console.log(4);
-            console.log(6);
-            console.log(8);
-            console.log(10);
-            console.log(12);
-            console.log(14);
-            console.log(16);
-            console.log(18);
-            console.log(20);
 
-            let num = 2;
-            console.log(num);
-            num+=2;
-            console.log(num);
-            num+=2;
-            console.log(num);
-            num+=2;
-            console.log(num);
-            num+=2;
-            console.log(num);
-            num+=2;
-            console.log(num);
-            num+=2;
-            console.log(num);
-            num+=2;
-            console.log(num);
-            num+=2;
-            console.log(num);
-            num+=2;
-            console.log(num);
-            num+=2;
+            // Write a function that takes 2 parameters. Starting at the first and counting by the second, will output 5 steps. I.e. countFromBy(10,5) results in:
 
 
-            for (let i = 0; i < 21; i++) {
-                if (i % 2 === 0) {
-                    console.log(i);
+            const countFromBy = function (countFrom, countBy) {
+                countFrom = 10;
+                countBy = 5;
+                for (countFrom; countFrom <= 25; countFrom) {
+                    countFrom = countFrom + countBy;
                 }
+                console.log(countFrom);
             }
+
+            countFromBy();
 
 
 
