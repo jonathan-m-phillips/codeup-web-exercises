@@ -1,3 +1,5 @@
+"use strict";
+
 /**
 
  This is the first Practice Assessment given for JavaScript!
