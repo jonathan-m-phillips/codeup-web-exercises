@@ -159,16 +159,68 @@
             // Write a function that takes 2 parameters. Starting at the first and counting by the second, will output 5 steps. I.e. countFromBy(10,5) results in:
 
 
-            const countFromBy = function (countFrom, countBy) {
-                countFrom = 10;
-                countBy = 5;
-                for (countFrom; countFrom <= 25; countFrom) {
-                    countFrom = countFrom + countBy;
-                }
-                console.log(countFrom);
-            }
+            // const countFromBy = function (countFrom, countBy) {
+            //     countFrom = 10;
+            //     countBy = 5;
+            //     for (countFrom; countFrom <= 25; countFrom) {
+            //         countFrom = countFrom + countBy;
+            //     }
+            //     console.log(countFrom);
+            // }
+            //
+            // countFromBy();
+            //
+            //
 
-            countFromBy();
+            // Write a JS function called magic8Ball that takes in one number as a parameter. The return value should be one of the following strings that correlates to the number passed in.
+            //
+            //     As I see it, yes.
+            //     Ask again later.
+            //     Better not tell you now.
+            //     Cannot predict now.
+            //     Concentrate and ask again.
+            //     Don’t count on it.
+            //     Outlook not so good.
+            //     Outlook is good.
+
+            let magic8Ball = function (value) {
+                if (value === 1 ) {
+                    console.log("As I see it, yes.");
+                    return "As I see it, yes.";
+                }
+                else if (value === 2) {
+                    console.log("Ask again later.");
+                    return "Ask again later.";
+                }
+                else if (value === 3) {
+                    console.log("Better not tell you now.");
+                    return "Better not tell you now.";
+                }
+                else if (value === 4) {
+                    console.log("Cannot predict now.");
+                    return "Cannot predict now.";
+                }
+                else if (value === 5) {
+                    console.log("Concentrate and ask again.");
+                    return "Concentrate and ask again.";
+                }
+                else if (value === 6) {
+                    console.log("Don’t count on it.");
+                    return "Don’t count on it.";
+                }
+                else if (value === 7) {
+                    console.log("Outlook not so good.");
+                    return "Outlook not so good.";
+                }
+                else if (value === 8) {
+                    console.log("Outlook is good.");
+                    return "Outlook is good.";
+                }
+
+            }
+            magic8Ball(2);
+
+
 
 
 
