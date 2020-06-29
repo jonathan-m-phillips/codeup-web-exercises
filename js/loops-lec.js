@@ -56,16 +56,46 @@
  just in different loop form!
  */
 
-console.log("While loop")
-let x = 1;
-while (x <= 10) {
-    console.log(x);
-    x++;
+// console.log("While loop")
+// let x = 1;
+// while (x <= 10) {
+//     console.log(x);
+//     x++;
+// }
+//
+// console.log("")
+//
+// console.log("For loop")
+// for (let i = 1; i <= 10; i++) {
+//     console.log(i)
+// }
+
+/**
+These next two loops execute same thing
+ */
+// for (let i = 1; i <=20; i++) {
+//     if (i % 2 === 0) {
+//         console.log(i);
+//     }
+// }
+//
+// for (let j = 2; j<=20; j+=2) {
+//     console.log(j);
+// }
+
+/**
+Another way of multiplying by adding the numbers in a loop
+
+ Ex. 5*4 = 20
+ 5 + 5 + 5 + 5 = 20
+ */
+let multiply = function (a, b) {
+    let answer = 0;
+    for (let i = 0; i < b; i++) {
+        answer += a;
+    }
+    return answer;
 }
 
-console.log("")
+console.log(multiply(6, 7));
 
-console.log("For loop")
-for (let i = 1; i <= 10; i++) {
-    console.log(i)
-}
