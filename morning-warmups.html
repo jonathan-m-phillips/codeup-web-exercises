@@ -223,8 +223,23 @@
             }
             magic8Ball(randomNumber);
 
+            let lights = "on";
+            let lightSwitch = function () {
 
+                if (lights === "on") {
+                    lights = "off";
+                }
+                else if (lights === "off") {
+                    lights = "on"
+                }
 
+            }
+
+            console.log("lights are " + lights);
+
+            lightSwitch();
+
+            console.log("lights are " + lights);
 
 
 
