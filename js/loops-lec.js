@@ -18,6 +18,8 @@
 //     console.log("")
 // }
 
+
+
 // let x = Math.floor((Math.random() * 10) + 1);
 // console.log(x);
 // alert("Let's play a guessing game");
@@ -29,21 +31,41 @@
 // }
 // alert("You guessed right!");
 
-let x = Math.floor((Math.random() * 10) + 1);
-console.log(x);
-alert("Let's play a guessing game");
-let guess;
-
-do {
-    guess = prompt("I chose a number between 1 and 10. Guess the number.");
-    if (guess != x) {
-        alert("No, that wasn't it.")
-        continue;
-    }
-    else {
-        alert("You guessed the number!");
-        break;
-    }
-} while (true);
 
 
+// let x = Math.floor((Math.random() * 10) + 1);
+// console.log(x);
+// alert("Let's play a guessing game");
+// let guess;
+//
+// do {
+//     guess = prompt("I chose a number between 1 and 10. Guess the number.");
+//     if (guess != x) {
+//         alert("No, that wasn't it.")
+//         continue;
+//     }
+//     else {
+//         alert("You guessed the number!");
+//         break;
+//     }
+// } while (true);
+
+
+/**
+ These are the same thing
+ just in different loop form!
+ */
+
+console.log("While loop")
+let x = 1;
+while (x <= 10) {
+    console.log(x);
+    x++;
+}
+
+console.log("")
+
+console.log("For loop")
+for (let i = 1; i <= 10; i++) {
+    console.log(i)
+}
