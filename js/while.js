@@ -41,12 +41,15 @@ let beingBought = 0;
 
 do {
     beingBought = Math.floor(Math.random() * 5) + 1;
-    allCones = allCones - beingBought;
-    console.log(beingBought + " cones sold.");
-    console.log(allCones + " cones are left.");
 
-    if (beingBought > allCones) {
+    if (beingBought <= allCones) {
+        allCones = allCones - beingBought;
+        console.log(beingBought + " cones sold.");
+    }
+    else {
         console.log("I cannot sell you " + beingBought + " cones. I only have " + allCones + " cones left.");
     }
 
-} while (allCones >= beingBought);
+} while (allCones > 0);
+
+console.log("Yay, I sold them all.")
