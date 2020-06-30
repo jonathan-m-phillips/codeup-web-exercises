@@ -99,3 +99,13 @@ let multiply = function (a, b) {
 
 console.log(multiply(6, 7));
 
+
+let addition = function (a, b) {
+    let answer = a;
+    for (let i=0; i<b; i++) {
+        answer++;
+    }
+    return answer;
+}
+
+console.log(addition(2, 7));
