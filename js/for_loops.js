@@ -19,7 +19,7 @@ showMultiplicationTable(7);
 //*SOLUTION*
 let x;
 for (let i = 1; i <= 10; i++) {
-    x = Math.floor((Math.random() * 180) + 21);
+    x = Math.floor((Math.random() * 181) + 20);
     if (x % 2 === 0) {
         console.log(x + " is even.")
     }
@@ -45,9 +45,11 @@ for (let i = 1; i <= 10; i++) {
 
 //*SOLUTION*
 for (let i = 1; i < 10; i++) {
+    let str = "";
     for (let j = 1; j <= i; j++) {
-        console.log(i)
+        str += i;
     }
+    console.log(str);
 }
 
 
