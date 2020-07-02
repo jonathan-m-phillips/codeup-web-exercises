@@ -30,6 +30,57 @@
         console.log(index + ": " + truck);
     }
 
+    console.log("");
+
+
+
+    // adding days of the week to the front and last
+    let daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+    console.log(daysOfWeek.length);
+
+    // adding to the front
+    daysOfWeek.unshift('Sunday');
+
+    // adding from the back
+    daysOfWeek.push('Saturday');
+
+    console.log(daysOfWeek.length);
+
+    daysOfWeek.forEach(function (day) {
+        console.log(day);
+    })
+
+    console.log("");
+
+
+
+    // cutting from the front and back
+    let helloWorld = ['hello', 'world', 'greetings', 'from', 'texas']
+
+    // cutting last item
+    let popItem = helloWorld.pop();
+
+    console.log(popItem);
+
+    // cutting first item
+    let shitItem = helloWorld.shift();
+
+    console.log(shitItem);
+
+    console.log(helloWorld);
+
+    console.log("")
+
+
+
+    // log index of indigo
+    let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'red'];
+
+    // will print 5, for the indexOf indigo
+    console.log(colors.indexOf('indigo'));
+
+
 
 </script>
 </body>
