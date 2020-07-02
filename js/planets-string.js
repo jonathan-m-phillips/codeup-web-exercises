@@ -45,6 +45,14 @@
 
     console.log(newPlanetsString);
 
+    console.log("");
+
+    let newPlanetsString2 = "<ul><li>" + planetsArray.join("</li><li>") + "</li></ul>";
+
+    console.log(newPlanetsString2);
+
+    console.log("");
+
 
     console.log("");
 
