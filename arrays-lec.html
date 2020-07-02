@@ -18,9 +18,11 @@
         console.log(fruits[i]);
     }
 
+    // forEach is a way to loop through an array
     fruits.forEach(function(fruit, index) {
         console.log(index + ": " + fruit);
     })
+
 
     let trucks = ['ford', 'ram', 'chevy', 'gmc'];
     console.log(trucks);
@@ -79,6 +81,53 @@
 
     // will print 5, for the indexOf indigo
     console.log(colors.indexOf('indigo'));
+
+    console.log("");
+
+
+    // slicing from an array
+    let fruitsArr = ['Banana', 'Orange', 'Apple', 'Mango'];
+
+    let sliceFruits = fruitsArr.slice(1,3);
+
+    console.log("sliced " + sliceFruits + " from fruitsArr.");
+
+    console.log("");
+
+
+
+    // reversing fruitsArr
+    console.log(fruitsArr.reverse());
+
+    console.log("");
+
+    // sorting fruitsArr
+    console.log(fruitsArr.sort());
+
+    console.log("");
+
+
+    // converting a string to an array
+    let originalString = "Hello,World,Greetings";
+    let newArray = originalString.split(',');
+
+    console.log(newArray);
+
+    console.log("");
+
+    // converting an array to a string
+    let originalArray = ['hello', 'world', 'greetings'];
+    let newString = originalArray.join(',');
+
+    console.log(newString);
+
+
+
+
+
+
+
+
 
 
 
