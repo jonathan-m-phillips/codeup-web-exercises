@@ -15,6 +15,9 @@
     let person = {
         firstName: "Jon",
         lastName: "Phillips"
+        // sayHello: function () {
+        //     return "Hello from " + this.firstName + " " + this.lastName + "!"
+        // }
     }
 
     /**
@@ -28,8 +31,13 @@
      */
 
     person.sayHello = function () {
-        console.log("Hello from " + person.firstName + " " + person.lastName + "!")
+        return "Hello from " + this.firstName + " " + this.lastName + "!"
     }
+
+    console.log(person.sayHello());
+
+    console.log("");
+    console.log("");
 
 
     /** TODO:
@@ -47,9 +55,18 @@
      */
 
     let shoppers = [
-        {name: 'Cameron', amount: 180},
-        {name: 'Ryan', amount: 250},
-        {name: 'George', amount: 320}
+        {
+            name: 'Cameron',
+            amount: 180
+        },
+        {
+            name: 'Ryan',
+            amount: 250
+        },
+        {
+            name: 'George',
+            amount: 320
+        }
     ];
 
     let discount = function () {
@@ -81,6 +98,20 @@
         }
     }
     discount();
+
+    // Using a forEach instead of a for loop
+
+    // shoppers.forEach(function(shopper) {
+    //     let saved = 0;
+    //
+    //     if (shopper.amount >= 200) {
+    //         saved = shopper.amount * .12;
+    //     }
+    //         console.log(shopper.name + " spent " + shopper.amount + ". They saved " + saved + " for a total of " + (shopper.amount - saved))
+    //
+    // })
+
+    console.log("");
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -176,14 +207,23 @@
 
         for (let i=0; i<books.length; i++) {
             if (i < books.length) {
-                console.log("Book # " + count++)
-                console.log("Title: " + books[i].title)
-                console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName)
-                console.log("---")
+                console.log("Book # " + count++);
+                console.log("Title: " + books[i].title);
+                console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+                console.log("---");
             }
         }
     }
     booksLoop();
+
+    // Using forEach instead of for loop
+
+    // books.forEach(function(book, index){
+    //     console.log("Book # " + (index+1));
+    //     console.log("Title " + book.title);
+    //     console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+    //     console.log("---");
+    // })
 
     /**
      * Bonus:
@@ -196,8 +236,42 @@
      *   `showBookInfo` function.
      */
 
-    let createBook = function () {
+    // let createBook = function (title, author) {
+    //     return {title: title, author: author};
+    // }
+    //
+    // let books2 = [];
+    //
+    // books2.push ("To Kill a Mockingbird", "Harper Lee");
+    // books2.push ("The 10X Rule", "Grant Cardone");
+    //
+    // let showBookInfo = function (book) {
+    //     books2.forEach(function (value){
+    //         console.log(value);
+    //     });
+    // };
+    // showBookInfo();
 
+    const createBook = function (title, firstName, lastName) {
+        let book = {};
+        book.title = title;
+        book.author = {};
+        book.author.firstName = firstName;
+        book.author.lastName = lastName;
+        return book;
     }
+
+    let showBookInfo = function(book, index) {
+        console.log("Book # 1 " + (index+1));
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.firstName + " " + book.lastName);
+        console.log("---")
+    }
+
+    let books2 = [];
+    books.push(createBook("To Kill a MockingBird", "Someone", "Wrote"));
+
+    books2.forEach(showBookInfo);
+
 
 })();
