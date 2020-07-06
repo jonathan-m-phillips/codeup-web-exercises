@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Objects</title>
+</head>
+<body>
+<h1>Objects</h1>
+
+<script>
+
+    let jon = {
+        name: "Jon",
+        school: "Codeup",
+        age: 29
+    };
+
+    console.log(jon);
+
+    console.log(jon.name);
+
+    console.log(typeof jon);
+
+    console.log(typeof jon.age);
+
+    console.log(typeof jon.name);
+
+    console.log("");
+
+    let truck = {
+        model: "Ram 1500",
+        color: "white",
+        motor: "5.7l hemi",
+        drivetrain: "4x4"
+    };
+
+
+
+
+    console.log(truck);
+
+    console.log(truck.model);
+
+    console.log(typeof truck);
+
+    console.log(typeof truck.model);
+
+    // Adding to truck object
+    // truck["year"] = 2016;
+
+    // This is the preferred way to add to an object
+    truck.year = 2016;
+
+    console.log(truck);
+
+    console.log(truck.year);
+
+    console.log("");
+
+
+
+
+    let tiger = {};
+
+    tiger.sayHello = function() {
+        console.log("Rooarrrr");
+    };
+
+    tiger.sayHello();
+
+    console.log("");
+
+
+
+    let batman = {
+        symbol: "bat",
+        color: "black",
+        name: "Bruce Wayne",
+        superHeroName: "Batman",
+        sayHello: function() {
+            alert("I'm " + this.superHeroName);
+        }
+    };
+
+
+    var cars = [
+        {
+            make: "Toyota",
+            model: "Camry",
+            features: ["Automatic Windows", "Bluetooth Connectivity", "GPS Navigation"],
+            owner: {
+                name: "Jane Doe",
+                age: 30
+            }
+        },
+        {
+            make: "Honda",
+            model: "Accord",
+            features: ["Automatic Windows", "Great Gas Mileage", "AM/FM Radio"],
+            owner: {
+                name: "John Doe",
+                age: 31
+            }
+        }
+    ];
+
+    console.log("The first car is a " + cars[0].make + " " + cars[0].model + ".");
+    console.log("The owner of the second car is " + cars[1].owner.name + ".");
+
+    console.log("Here are all the features of all the cars:");
+    cars.forEach(function(car) {
+        car.features.forEach(function(feature) {
+            console.log(feature);
+        });
+    });
+
+
+</script>
+</body>
+</html>
