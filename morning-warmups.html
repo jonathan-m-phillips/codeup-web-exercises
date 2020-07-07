@@ -269,21 +269,39 @@
 
 
             // Fizz Buzz game
-            let fizzBuzz = function (value) {
-                if (value % 3 == 0 && value % 5 == 0) {
-                    console.log("fizz buzz");
-                }
-                else if (value % 3 == 0) {
-                    console.log("fizz");
-                }
-                else if (value % 5 == 0) {
-                    console.log("buzz");
-                }
-                else {
-                    console.log(value);
+            // let fizzBuzz = function (value) {
+            //     if (value % 3 == 0 && value % 5 == 0) {
+            //         console.log("fizz buzz");
+            //     }
+            //     else if (value % 3 == 0) {
+            //         console.log("fizz");
+            //     }
+            //     else if (value % 5 == 0) {
+            //         console.log("buzz");
+            //     }
+            //     else {
+            //         console.log(value);
+            //     }
+            // }
+            // fizzBuzz(1);
+
+            let fizzBuzz = function (num) {
+                for (let i = 1; i <= num; i++) {
+                    if (i % 3 === 0 && i % 5 === 0) {
+                        console.log("fizzbuzz");
+                    }
+                    else if (i % 3 === 0) {
+                        console.log("fizz");
+                    }
+                    else if (i % 5 === 0) {
+                        console.log("buzz");
+                    }
+                    else {
+                        console.log(i);
+                    }
                 }
             }
-            fizzBuzz(1);
+            fizzBuzz(30);
 
 
         </script>
