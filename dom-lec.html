@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Lecture</title>
+</head>
+<body>
+<h1>DOM</h1>
+
+<h1 id="demo"></h1>
+
+<p class="a">1a</p>
+<p class="b">1b</p>
+<p class ="a">2a</p>
+<p class="b">2b</p>
+
+<form name="fred">
+    <label for="username">Username: </label>
+    <input type="text" id="username" value="Jon">
+</form>
+<button onclick="saveUsername()">Save Username</button>
+
+<p id="hello"></p>
+
+<p id="demoText"></p>
+
+<p id="demo3">demo3</p>
+<p id="demo4" data-dbfield="field_seven"></p>
+
+<script>
+
+    "use strict";
+
+    // Putting Hyperion Rocks on the id demo for h1
+    (function() {
+        var idTag = document.getElementById('demo');
+        idTag.innerHTML = "Hyperion Rocks";
+    })();
+
+
+    // Printing out only the b class in the console
+    (function () {
+        var classTag = document.getElementsByClassName('b');
+
+        for (let i = 0; i < classTag.length; i++) {
+            console.log(classTag[i].outerHTML);
+        }
+    })();
+
+
+    // Printing out p tags to the console
+    (function () {
+        var pGs = document.getElementsByTagName("p")
+        for (let i = 0; i < pGs.length; i++) {
+            console.log(pGs[i].outerHTML);
+        }
+    })();
+
+
+
+    // giving username a value
+    (function () {
+        var userNameInput = document.forms.fred.username;
+        console.log(userNameInput.value)
+    })();
+
+
+    // saving username
+    function saveUsername() {
+        var username = document.forms.fred.username.value;
+        console.log(username);
+    }
+
+
+    // getting the id from p tag and typing bold Hello Hyperion
+    //    inner html
+    (function () {
+        var pHello = document.getElementById('hello');
+        pHello.innerHTML = "<b>Hello Hyperion!</b>"
+
+    })();
+
+
+    // getting id from p tag and typing <b> as text
+    //    inner text
+    (function () {
+        var pDemo = document.getElementById('demoText');
+        pDemo.innerText = "<b>Hello Hyperion!</b>"
+
+    })();
+
+
+    // getting id from p tag demo 3 and setting a font size of 6rem
+    var searchLink = document.getElementById("demo3");
+    searchLink.setAttribute("style", "font-size: 6rem")
+
+
+    var searchLink2 = document.getElementById("demo4");
+    var dataAttr = searchLink2.getAttribute('data-dbfield');
+    alert('The database attribute is ' + dataAttr);
+
+
+
+
+
+</script>
+
+</body>
+</html>
