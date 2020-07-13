@@ -2,9 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Mapbox Maps API</title>
+
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+
 </head>
 <body>
-$END$
+
+<div id='map'></div>
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+<!-- Custom JS -->
+<script>
+
+    // creating an object for the map
+    mapboxgl.accessToken = mapboxKey;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 9,
+        center: [-98.7320, 29.7947]
+    });
+
+    map.zoomTo(11);
+
+    const center = "Boerne, Texas 78006";
+    const restaurants = [
+        {
+            name: "Z's Pizza",
+            address: "118 Old San Antonio Rd, Boerne, TX 78006",
+            long: '29.766795',
+            lat: '-98.711439',
+            info: "Wood fire pizza"
+        },
+        {
+            name: "Black Rifle Coffee Company",
+            address: "101 S Main St suite a, Boerne, TX 78006",
+            long: '29.793852',
+            lat: '-98.731585',
+            info: "Veteran owned coffee company"
+        },
+        {
+            name: "Shang Hai Chinese Restaurant",
+            address: "430 W Bandera Rd # 1, Boerne, TX 78006",
+            long: '29.781517',
+            lat: '-98.736601',
+            info: "Local Chinese restaurant"
+        }
+    ];
+
+
+    restaurants.forEach(function(restaurant) {
+        var popupAll = new mapboxgl.Popup()
+            .setHTML('<h4>' + restaurant.name + '</h4>'+ restaurant.info + "<br>" + restaurant.address);
+        var marker2 = new mapboxgl.Marker()
+            .setLngLat([restaurant.lat, restaurant.long])
+            .setPopup(popupAll)
+            .addTo(map);
+    });
+
+</script>
+
 </body>
 </html>
