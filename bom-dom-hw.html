@@ -2,9 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
+<h1>DOM Exercise #1</h1>
+<p id="red-text">TODO: Change my text red!</p>
+<p id="bold-font">TODO: Make this text bold</p>
+<p id="helvetica-font">TODO: Make my font 'Helvetica'</p>
+<p class="log-me">TODO: Console log my innerHTML content to the console</p>
+<p class="log-me">TODO: Console log my outerHTML content to the console</p>
+<p class="log-me">TODO: Console log my class name to the console</p>
+<p class="log-me" id="i-have-an-id">TODO: Console log my attributes to the console</p>
+<h1>TODO: Replace all of these movies with your own top 3 movies using DOM</h1>
+<ol>
+    <li id="movie-1">Forrest Gump</li>
+    <li id="movie-2">Batman: The Dark Knight</li>
+    <li id="movie-3">Inception</li>
+</ol>
+
+<script>
+
+    (function() {
+        "use strict";
+
+        var redText = document.getElementById('red-text');
+        redText.setAttribute('style', 'color: red');
+
+        var fontBold = document.getElementById('bold-font');
+        fontBold.setAttribute('style', 'font-weight: bold');
+
+        var helvetica = document.getElementById('helvetica-font');
+        helvetica.setAttribute('style', 'font-family: helvetica');
+
+
+        // creating variable className for class 'log-me'
+        var className = document.getElementsByClassName('log-me');
+
+        // logging Console log my innerHTML content to the console
+        console.log(className[0].innerHTML);
+
+        // logging Console log my outerHTML content to the console
+        console.log(className[1].outerHTML);
+
+        // logging Console log my class name to the console
+        console.log("class name = " + className[2].className);
+
+        // logging Console log my attributes to the console
+        console.log("id name = " + className[3].id);
+
+        // creating variable movie1 to replace the favorite movie 1
+        var movie1 = document.getElementById('movie-1');
+        movie1.innerHTML = "The Bourne Series";
+
+        // creating variable movie2 to replace the favorite movie 2
+        var movie2 = document.getElementById('movie-2');
+        movie2.innerHTML = "Hell or High Water";
+
+        // creating variable movie3 to replace the favorite movie 3
+        var movie3 = document.getElementById('movie-3');
+
+
+
+    })();
+
+    console.log("");
+
+    //TODO: Write a function that loops through a string. For each character in the string that is a vowel (aeiou/AEIOU), add it to the array and return the array
+
+    let stringLoop = function (str) {
+
+        let array = [];
+        str = str.toLowerCase();
+
+        for (let i = 0; i < str.length; i++) {
+            if (str == 'hello') {
+                array[i] = array.push(i);
+                console.log(array[i]);
+            }
+        }
+
+    }
+    stringLoop("hello");
+
+    //TODO: Write a function that checks if someone is 21 or older. If they are over 21, return true. Otherwise return false.
+    //TODO: Write a function that will set an interval that counts down from 10 at 1second intervals. Every count should be logged to the console. If the count reaches zero, then return an alert that says 'lift off!'
+    //TODO: Given the following array of objects, write a function that takes in the array and return the object that costs the most money.
+    var storeItems = [
+        {
+            name: 'hammer',
+            price: 10.99
+        },
+        {
+            name: 'macbook',
+            price: 1599.99
+        },
+        {
+            name: 'chair',
+            price: 35.99
+        },
+        {
+            name: 'bike',
+            price: 140.99
+        }
+    ];
+
+</script>
 </body>
 </html>
