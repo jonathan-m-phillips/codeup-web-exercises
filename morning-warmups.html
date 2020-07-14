@@ -278,32 +278,43 @@
     // }
     // fizzBuzz(1);
 
-    let fizzBuzz = function (num) {
-        for (let i = 1; i <= num; i++) {
-            if (i % 3 === 0 && i % 5 === 0) {
-                console.log("fizzbuzz");
-            } else if (i % 3 === 0) {
-                console.log("fizz");
-            } else if (i % 5 === 0) {
-                console.log("buzz");
-            } else {
-                console.log(i);
-            }
-        }
-    }
-    fizzBuzz(30);
+    // let fizzBuzz = function (num) {
+    //     for (let i = 1; i <= num; i++) {
+    //         if (i % 3 === 0 && i % 5 === 0) {
+    //             console.log("fizzbuzz");
+    //         } else if (i % 3 === 0) {
+    //             console.log("fizz");
+    //         } else if (i % 5 === 0) {
+    //             console.log("buzz");
+    //         } else {
+    //             console.log(i);
+    //         }
+    //     }
+    // }
+    // fizzBuzz(30);
+    //
+    //
+    // let fibonacci = function(num) {
+    //     let output = [0,1];
+    //     let i = output.length;
+    //     while (i<num) {
+    //         output.push(output[output.length - 2] + output[output.length - 1]);
+    //         i++;
+    //     }
+    //     return output;
+    // }
+    // console.log(fibonacci(9));
 
 
-    let fibonacci = function(num) {
-        let output = [0,1];
-        let i = output.length;
-        while (i<num) {
-            output.push(output[output.length - 2] + output[output.length - 1]);
-            i++;
-        }
-        return output;
+    // Write a function that takes in a three digit integer and returns
+    // the digit in the tens. I.e. isolateTensDigit(345) → 4
+    function isolateTensDigit (threeDigitNum) {
+        let total = 0;
+        total = threeDigitNum / 100;
+        console.log(Math.round(total));
     }
-    console.log(fibonacci(9));
+
+    isolateTensDigit(678);
 
 
 
