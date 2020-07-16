@@ -130,12 +130,12 @@
     //
 
     const addRole = function (role) {
-        // for (let i = 0; i < myMac.users.length; i++) {
-        //     myMac.users[i].role = role;
-        // }
-        myMac.users.forEach(function (item) {
-            item.role = role;
-        })
+        for (let i = 0; i < myMac.users.length; i++) {
+            myMac.users[i].role = role;
+        }
+        // myMac.users.forEach(function (item) {
+        //     item.role = role;
+        // })
     }
     addRole("instructor");
 
