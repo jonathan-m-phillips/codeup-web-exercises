@@ -3,6 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>JQuery Exercise</title>
+
+    <style>
+
+        .h1-color {
+            color: darkolivegreen;
+        }
+
+        .p-size {
+            font-size: 18px;
+        }
+
+        .li-color {
+            color: darkred;
+        }
+
+    </style>
 </head>
 <body>
 <div>
@@ -23,29 +39,58 @@
 <script src="js/jquery-3.5.1.js"></script>
 <script>
 
+    // $(document).ready(function () {
+    //     alert("The DOM has finished loading!")
+    //     alert($("#item-1").text());
+    // });
+    //
+    // $('.codeup').css({'border': '1px solid red'});
+    //
+    // $('#codeup').css({'border': '1px solid blue'});
+    //
+    // $('li').css({'fontSize': '20px'});
+    //
+    // $('p').css({'fontSize': '30px'});
+    //
+    // $('h1').css({'color': 'gray'});
+    //
+    // $('li').addClass('testing');
+    //
+    //
+    // $('h1, p, li').css({'backgroundColor': 'yellow'});
+    //
+    // $(document).ready(function () {
+    //     alert($('h1').text());
+    // })
+
     $(document).ready(function () {
-        alert("The DOM has finished loading!")
-        alert($("#item-1").text());
+        $('h1').click(function () {
+            $('h1').addClass('h1-color');
+        });
+        $('h1').dblclick(function () {
+            if ($(this).hasClass('h1-color')) {
+                $(this).removeClass('h1-color');
+            }
+        });
+
+        $('p').dblclick(function () {
+            $('p').addClass('p-size');
+        });
+        $('p').click(function () {
+            if ($('p').hasClass('p-size')) {
+                $('p').removeClass('p-size');
+            }
+        });
+
+        $('li').hover(function () {
+                $(this).addClass('li-color');
+            },
+            function () {
+                $(this).removeClass('li-color');
+            }
+        );
+
     });
-
-    $('.codeup').css({'border': '1px solid red'});
-
-    $('#codeup').css({'border': '1px solid blue'});
-
-    $('li').css({'fontSize': '20px'});
-
-    $('p').css({'fontSize': '30px'});
-
-    $('h1').css({'color': 'gray'});
-
-    $('li').addClass('testing');
-
-
-    $('h1, p, li').css({'backgroundColor': 'yellow'});
-
-    $(document).ready(function () {
-        alert($('h1').text());
-    })
 
 
 </script>
