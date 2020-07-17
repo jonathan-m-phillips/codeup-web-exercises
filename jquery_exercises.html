@@ -6,8 +6,9 @@
 
     <style>
 
-        .h1-color {
-            color: darkolivegreen;
+        .h1-bg-color {
+            background-color: darkolivegreen;
+
         }
 
         .p-size {
@@ -65,16 +66,16 @@
 
     $(document).ready(function () {
         $('h1').click(function () {
-            $('h1').addClass('h1-color');
+            $(this).addClass('h1-bg-color');
         });
         $('h1').dblclick(function () {
-            if ($(this).hasClass('h1-color')) {
-                $(this).removeClass('h1-color');
+            if ($(this).hasClass('h1-bg-color')) {
+                $(this).removeClass('h1-bg-color');
             }
         });
 
         $('p').dblclick(function () {
-            $('p').addClass('p-size');
+            $(this).addClass('p-size');
         });
         $('p').click(function () {
             if ($(this).hasClass('p-size')) {
