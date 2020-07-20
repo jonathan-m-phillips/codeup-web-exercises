@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Konami Code</title>
+</head>
+<body>
+<h1 id="konami-header">Enter the konami code!</h1>
+
+<p class="button-pressed">code</p>
+
+<script src="js/jquery-3.5.1.js"></script>
+
+<script>
+
+    // creating arrays for allowed user input in konami code
+    let allowedKeys = {
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down',
+        65: 'a',
+        66: 'b',
+        13: 'enter'
+    };
+
+    // konami code array
+    let konamiCode = ["up", "up", "down", "down", "left", "right", "left", "right", "b", "a", "enter"];
+
+    // user input position on the code
+    let currentPosition = 0;
+
+    // welcoming to page, alert
+    let openingAlert = alert("Welcome to the world of konami!");
+
+    // alert if user input correct code
+    let correctCode = "You are granted 30 extra lives!";
+
+
+    // keydown event function
+    $(document).keydown(function (e) {
+
+        if (e.code === 'ArrowUp' || e.code === 'ArrowDown' || e.code === 'ArrowLeft' || e.code === 'ArrowRight' || e.code === 'KeyB' || e.code === 'KeyA' || e.code === 'Enter') {
+            if (e.code === 'KeyB') {
+                $('.button-pressed').html('b');
+            } else if (e.code === 'KeyA') {
+                $('.button-pressed').html('a');
+            } else {
+                $('.button-pressed').html(e.code);
+            }
+        } else {
+            alert('That is not part of the konami code! Restart...');
+        }
+
+        // adding user input to key
+        let key = allowedKeys[e.keyCode];
+
+        // debugging keys
+        // console.log(key)
+
+        // requiredKey set equal to current position in the konami code array
+        let requiredKey = konamiCode[currentPosition];
+
+        // incrementing current position in konami code if the required key is entered
+        if (key == requiredKey) {
+            currentPosition++
+
+            // if current position of konami code is the same length as the konami code call function cheatMode and reset current position to 0 to restart the code
+            if (currentPosition == konamiCode.length) {
+                cheatMode();
+                currentPosition = 0;
+            }
+        }
+
+        // if current position does not equal full length of konami then reset to the beginning
+        else {
+            currentPosition = 0;
+        }
+
+    });
+
+    // cheatMode set to alert correctCode if all keys entered correctly
+    function cheatMode() {
+        alert(correctCode);
+    }
+
+
+</script>
+</body>
+</html>
