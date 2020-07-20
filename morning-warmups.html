@@ -308,27 +308,60 @@
 
     // Write a function that takes in a three digit integer and returns
     // the digit in the tens. I.e. isolateTensDigit(345) → 4
-    function isolateTensDigit(threeDigitNum) {
-        let total = 0;
-        total = threeDigitNum / 100;
-        console.log(Math.round(total));
-    }
-
-    isolateTensDigit(678);
+    // function isolateTensDigit(threeDigitNum) {
+    //     let total = 0;
+    //     total = threeDigitNum / 100;
+    //     console.log(Math.round(total));
+    // }
+    //
+    // isolateTensDigit(678);
 
     //    Write a function that will return an array passed sorted in reverse alphabetical order, when passed an array of strings. It should return null if any element within the array is not a string.
-    const reverseAlphabet = function (arr) {
-        for (let i=0; i<arr.length; i++) {
-            if (typeof arr[i] !== "string") {
-                console.log('null')
-                return null;
-            }
-        }
-            console.log(arr.sort().reverse());
-            return arr.sort().reverse();
+    // const reverseAlphabet = function (arr) {
+    //     for (let i=0; i<arr.length; i++) {
+    //         if (typeof arr[i] !== "string") {
+    //             console.log('null')
+    //             return null;
+    //         }
+    //     }
+    //         console.log(arr.sort().reverse());
+    //         return arr.sort().reverse();
+    // }
+    // reverseAlphabet(['hello', 'world']);
+    // reverseAlphabet([0]);
+
+
+    // var i = 0;
+    // while (i <= 10) {
+    //     console.log(i);
+    //     i++;
+    // }
+    //
+    // for (let i = 0; i <= 10; i++) {
+    //     console.log(i);
+    // }
+
+    if (!!true == true) {
+        console.log("true")
     }
-    reverseAlphabet(['hello', 'world']);
-    reverseAlphabet([0]);
+
+    console.log(parseInt("1") + 2);
+
+
+    let i = "true";
+    if (i === true) {
+        console.log("true")
+    } else {
+        console.log("false")
+    }
+
+
+    var i = 0;
+    while(i <= 10) {
+        console.log(i);
+        i++;
+    }
+
 
 
 
