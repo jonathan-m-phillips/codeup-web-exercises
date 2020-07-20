@@ -1,0 +1,71 @@
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.arrows-container {
+    position: fixed;
+    top: 280px;
+    border-color: white;
+    height: 300px;
+    width: 300px;
+    right: 330px;
+}
+
+
+#top-arrow, #right-arrow, #bottom-arrow, #left-arrow, #middle-arrow, #a-button, #b-button {
+    height: 100px;
+}
+
+
+#top-arrow {
+    position: fixed;
+    top: 251px;
+    left: 294px;
+}
+
+#right-arrow {
+    position: fixed;
+    top: 350px;
+    left: 390px;
+}
+
+#middle-arrow {
+    position: fixed;
+    top: 350px;
+    left: 294px;
+}
+
+#bottom-arrow {
+    position: fixed;
+    top: 449px;
+    left: 294px;
+}
+
+#left-arrow {
+    position: fixed;
+    top: 350px;
+    left: 195px;
+}
+
+#a-button {
+    position: fixed;
+    top: 350px;
+    right: 400px;
+}
+
+#b-button {
+    position: fixed;
+    top: 310px;
+    right: 260px;
+}
+
+.restart {
+    position: fixed;
+    top: 320px;
+    left: 750px;
+    font-size: 50px;
+    padding: 20px;
+    border: 10px solid black;
+}
+

@@ -1,14 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Konami Code</title>
 </head>
+
+<!--   custom css file   -->
+<link rel="stylesheet" href="css/konami.css">
+
+
 <body>
+
+<audio src="audio/npc-yc_mario-win.wav"></audio>
+
 <h1 id="konami-header">Enter the konami code!</h1>
 
-<p class="button-pressed">code</p>
+<!--   wrapping the buttons into a container   -->
+<div class="body-container">
 
+    <!--    wrapping the arrow buttons into a container   -->
+    <div class="arrows-container">
+        <img src="img/up@330x.png" id="top-arrow">
+        <img src="img/right@330x.png" id="right-arrow">
+        <img src="img/middle@330x.png" id="middle-arrow">
+        <img src="img/down@330x.png" id="bottom-arrow">
+        <img src="img/left@330x.png" id="left-arrow">
+    </div>
+
+    <!--    wrapping the letter buttons into a container   -->
+    <div class="buttons-container">
+        <img src="img/a@330x.png" id="a-button">
+        <img src="img/b@330x.png" id="b-button">
+    </div>
+
+    <!--   restart button   -->
+    <p class="restart" onclick="reloadPage();">Restart</p>
+
+
+</div>
+
+<!--   linking to jquery locally   -->
 <script src="js/jquery-3.5.1.js"></script>
 
 <script>
@@ -24,14 +55,25 @@
         13: 'enter'
     };
 
+
+    // creating a buttons clicked object
+    // let buttonsClicked = {};
+    //
+    // $(document).ready(function () {
+    //     $('#top-arrow').click (function () {
+    //         buttonsClicked.push(allowedKeys[1]);
+    //         console.log(buttonsClicked);
+    //     });
+    // });
+    //
+    // console.log(buttonsClicked);
+
     // konami code array
     let konamiCode = ["up", "up", "down", "down", "left", "right", "left", "right", "b", "a", "enter"];
 
     // user input position on the code
     let currentPosition = 0;
 
-    // welcoming to page, alert
-    let openingAlert = alert("Welcome to the world of konami!");
 
     // alert if user input correct code
     let correctCode = "You are granted 30 extra lives!";
@@ -40,20 +82,70 @@
     // keydown event function
     $(document).keydown(function (e) {
 
-        if (e.code === 'ArrowUp' || e.code === 'ArrowDown' || e.code === 'ArrowLeft' || e.code === 'ArrowRight' || e.code === 'KeyB' || e.code === 'KeyA' || e.code === 'Enter') {
-            if (e.code === 'KeyB') {
-                $('.button-pressed').html('b');
-            } else if (e.code === 'KeyA') {
-                $('.button-pressed').html('a');
-            } else {
-                $('.button-pressed').html(e.code);
-            }
+        // if a button is entered, a button image will appear and the rest will disappear
+        if (e.code === 'ArrowUp') {
+            $('#top-arrow').show();
+            $('#left-arrow').hide();
+            $('#right-arrow').hide();
+            $('#bottom-arrow').hide();
+            $('#b-button').hide();
+            $('#a-button').hide();
+            $('#middle-arrow').hide();
+        } else if (e.code === 'ArrowDown') {
+            $('#top-arrow').hide();
+            $('#left-arrow').hide();
+            $('#right-arrow').hide();
+            $('#bottom-arrow').show();
+            $('#b-button').hide();
+            $('#a-button').hide();
+            $('#middle-arrow').hide();
+        } else if (e.code === 'ArrowLeft') {
+            $('#top-arrow').hide();
+            $('#left-arrow').show();
+            $('#right-arrow').hide();
+            $('#bottom-arrow').hide();
+            $('#b-button').hide();
+            $('#a-button').hide();
+            $('#middle-arrow').hide();
+        } else if (e.code === 'ArrowRight') {
+            $('#top-arrow').hide();
+            $('#left-arrow').hide();
+            $('#right-arrow').show();
+            $('#bottom-arrow').hide();
+            $('#b-button').hide();
+            $('#a-button').hide();
+            $('#middle-arrow').hide();
+        } else if (e.code === 'KeyB') {
+            $('#top-arrow').hide();
+            $('#left-arrow').hide();
+            $('#right-arrow').hide();
+            $('#bottom-arrow').hide();
+            $('#b-button').show();
+            $('#a-button').hide();
+            $('#middle-arrow').hide();
+        } else if (e.code === 'KeyA') {
+            $('#top-arrow').hide();
+            $('#left-arrow').hide();
+            $('#right-arrow').hide();
+            $('#bottom-arrow').hide();
+            $('#b-button').hide();
+            $('#a-button').show();
+            $('#middle-arrow').hide();
+        } else if (e.code === 'Enter') {
+            $('#top-arrow').show();
+            $('#left-arrow').show();
+            $('#right-arrow').show();
+            $('#bottom-arrow').show();
+            $('#b-button').show();
+            $('#a-button').show();
+            $('#middle-arrow').show();
         } else {
-            alert('That is not part of the konami code! Restart...');
+            alert('That is not a real control! Click restart to start over.');
         }
 
         // adding user input to key
         let key = allowedKeys[e.keyCode];
+        // let keys = allowedKeys[buttonsClicked];
 
         // debugging keys
         // console.log(key)
@@ -62,7 +154,7 @@
         let requiredKey = konamiCode[currentPosition];
 
         // incrementing current position in konami code if the required key is entered
-        if (key == requiredKey) {
+        if (key == requiredKey) {// || keys == requiredKey) {
             currentPosition++
 
             // if current position of konami code is the same length as the konami code call function cheatMode and reset current position to 0 to restart the code
@@ -81,8 +173,35 @@
 
     // cheatMode set to alert correctCode if all keys entered correctly
     function cheatMode() {
-        alert(correctCode);
+        $('body').css({
+            'backgroundColor': 'red',
+            'color': 'white'
+        });
+
+
+        $('h1').html("You did it! You activated the code!")
+        alert("You just earned 30 lives!!!");
+        let audio = $("audio")[0];
+        audio.play();
+
+
+        $('.restart').on("click", function () {
+            $('body').css({
+                'backgroundColor': 'white',
+                'color': 'black'
+            })
+        });
+
     }
+
+    function reloadThePage() {
+        $('.restart').click(function () {
+            window.location.reload(true);
+        });
+    }
+
+    reloadThePage();
+
 
 
 </script>
