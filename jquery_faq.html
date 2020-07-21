@@ -4,16 +4,88 @@
     <meta charset="UTF-8">
     <title>jquery faq</title>
 </head>
+
+<style>
+
+    .park {
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .rocky {
+        font-size: 30px;
+    }
+
+    dd {
+        font-size: 18px;
+        color: darkslategrey;
+    }
+
+    .invisible {
+        visibility: hidden;
+    }
+
+    .highlighted {
+        color: darkolivegreen;
+    }
+
+    .invert {
+        background: black;
+        color: white;
+    }
+
+
+</style>
+
 <body>
 
-<p>National Parks</p>
+<p class="park">National Parks</p>
 
 <dl>
-    <dt>Rockie Mountain National Park</dt>
-
+    <dt class="rocky">Rocky Mountain National Park</dt>
+    <dd>1: One of the highest national parks in the nation.</dd>
+    <dd>2: The park's boundaries were established in 1915.</dd>
+    <dd>3: The Trail Ridge Road was built in the 1930's.</dd>
+    <dd>4: The peaks of the mountains may have snow while down in the plains will have summer temperatures.</dd>
+    <dd>5: The views are priceless.</dd>
+    <dd>6: The tallest peak in the park is 14,259 feet tall on Longs Peak.</dd>
+    <dd>7: There are elk, moose, mule deer, pronghorns, wolves, mountain sheep, mountain lions, and many more animals
+        who live there.
+    </dd>
+    <dd>8: The mountains and the wildlife bring peace.</dd>
+    <dd>9: The National Park is only one hour away from Denver, CO.</dd>
+    <dd>10: The Park is free to enter at night time.</dd>
 </dl>
 
 <script src="js/jquery-3.5.1.js"></script>
+<script>
+
+
+    // adding class to dd elements
+    $('dd').addClass('invisible');
+
+    // if DT is clicked, DD will appear
+    $(".rocky").click(function () {
+        $('.invisible').toggleClass('invisible');
+    });
+
+    // if individual DD is clicked, they will disappear
+    $('.invisible').click(function () {
+        $(this).toggleClass('invisible')
+    });
+
+    // if DT is clicked, it gets highlighted
+    $('dt').click(function () {
+        $(this).toggleClass('highlighted')
+    });
+
+    // putting invert class to National Parks header
+    //   changing color of background
+    $('.park').click(function () {
+        $('body').toggleClass('invert')
+    });
+
+</script>
 
 </body>
 </html>
