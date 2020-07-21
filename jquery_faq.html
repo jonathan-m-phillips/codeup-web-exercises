@@ -34,6 +34,70 @@
         color: white;
     }
 
+    .li-bg {
+        background: yellowgreen;
+    }
+
+    .li-bold {
+        font-weight: bold;
+    }
+
+    .li-blue {
+        color: cadetblue;
+    }
+
+    .div1 {
+        display: inline-block;
+        height: 100px;
+        width: 80px;
+        border: 8px solid black;
+        margin-top: 2em;
+        margin-right: 2em;
+        background: midnightblue;
+    }
+
+    .div1-btn {
+        margin-left: 1.8em;
+    }
+
+    .div1-new {
+        background: greenyellow;
+        border: 8px solid rebeccapurple;
+    }
+
+    .div2 {
+        display: inline-block;
+        height: 100px;
+        width: 80px;
+        border: 8px solid darkolivegreen;
+        margin-top: 2em;
+        background: greenyellow;
+    }
+
+    .div2-btn {
+        margin-left: 6em;
+    }
+
+
+    .div3 {
+        display: inline-block;
+        height: 100px;
+        width: 80px;
+        border: 8px solid rebeccapurple;
+        margin-top: 2em;
+        margin-left: 2em;
+        background: deeppink;
+    }
+
+    .div3-btn {
+        margin-left: 6em;
+    }
+
+    .div3-new {
+        border: 8px solid black;
+        background: greenyellow;
+    }
+
 
 </style>
 
@@ -54,6 +118,37 @@
 
 <button class="invis-toggle">Invisible Toggle</button>
 
+
+<ul class="rocky-ul">
+    <h3>Rocky Mountain National Park</h3>
+    <li>It is located in Colorado</li>
+    <li>It is one the highest parks in the nation</li>
+</ul>
+
+<ul class="yellowstone-ul">
+    <h3>Yellowstone National Park</h3>
+    <li>It is located in Wyoming</li>
+    <li>It gets cold there</li>
+</ul>
+
+<ul class="zion-ul">
+    <h3>Zion National Park</h3>
+    <li>It is located in southern Utah</li>
+    <li>It is in the desert</li>
+</ul>
+
+<button class="li-button">List Item button</button>
+
+<div class="container">
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+</div>
+
+<button class="div1-btn">Div 1</button>
+<button class="div2-btn">Div 2</button>
+<button class="div3-btn">Div 3</button>
+
 <script src="js/jquery-3.5.1.js"></script>
 <script>
 
@@ -61,10 +156,14 @@
     // adding class to dd elements
     $('dd').addClass('invisible');
 
+
     // if invisible toggle button is selected the invisible class will toggle
-    $('.invis-toggle').click(function() {
+    $('.invis-toggle').click(function () {
         $('dd').toggleClass('invisible');
     })
+
+
+
 
     // if class rocky is clicked, it gets highlighted
     $('.rocky').click(function () {
@@ -77,11 +176,99 @@
         $('.zion').toggleClass('highlighted')
     });
 
+
+
+
     // putting invert class to National Parks header
     //   changing color of background
     $('.park').click(function () {
-        $('body').toggleClass('invert')
+        $('body').toggleClass('invert');
     });
+
+
+
+
+    // adding class li-bg to all of the last li in the ul
+    $('.li-button').click(function () {
+
+        if ($('.rocky-ul').children('li').last().hasClass('li-bg')
+            || $('.yellowstone-ul').children('li').last().hasClass('li-bg')
+            || $('.zion-ul').children('li').last().hasClass('li-bg')) {
+            $('.rocky-ul').children('li').last().removeClass('li-bg');
+            $('.yellowstone-ul').children('li').last().removeClass('li-bg');
+            $('.zion-ul').children('li').last().removeClass('li-bg');
+        } else {
+            $('.rocky-ul').children('li').last().addClass('li-bg');
+            $('.yellowstone-ul').children('li').last().addClass('li-bg');
+            $('.zion-ul').children('li').last().addClass('li-bg');
+        }
+
+    });
+
+
+
+
+    // if each h3 is clicked in ul the li will bold
+    $('.rocky-ul').children('h3').click(function () {
+        $('.rocky-ul').children('li').toggleClass('li-bold');
+    });
+    $('.yellowstone-ul').children('h3').click(function () {
+        $('.yellowstone-ul').children('li').toggleClass('li-bold');
+    });
+    $('.zion-ul').children('h3').click(function () {
+        $('.zion-ul').children('li').toggleClass('li-bold');
+    });
+
+
+
+
+    // if any li is selected, the first li of the list will turn blue
+    $('.rocky-ul').children('li').click(function () {
+        $('.rocky-ul').children('li').first().toggleClass('li-blue')
+    });
+    $('.yellowstone-ul').children('li').click(function () {
+        $('.yellowstone-ul').children('li').first().toggleClass('li-blue')
+    });
+    $('.zion-ul').children('li').click(function () {
+        $('.zion-ul').children('li').first().toggleClass('li-blue')
+    });
+
+
+
+
+    // toggling button for the div1 button
+    $('.div1-btn').click(function () {
+        $('.div1').toggleClass('div1-new')
+    });
+
+
+
+
+    // randomizing background for div2 button
+    var safeColors = ['midnightblue', 'deeppink'];
+    var rand = function () {
+        return Math.floor(Math.random() * 2);
+    };
+    var randomColor = function () {
+        var randBG = safeColors[rand()];
+        return "" + randBG;
+    };
+
+
+    $('.div2-btn').click(function () {
+        $('.div2').each(function () {
+            $(this).css('background', randomColor());
+        });
+    });
+
+
+
+    // toggling button for the div3 button
+    $('.div3-btn').click(function () {
+        $('.div3').toggleClass('div3-new')
+    });
+
+
 
 </script>
 
