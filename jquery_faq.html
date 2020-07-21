@@ -12,7 +12,7 @@
         font-weight: bold;
     }
 
-    .rocky {
+    dt {
         font-size: 30px;
     }
 
@@ -43,19 +43,16 @@
 
 <dl>
     <dt class="rocky">Rocky Mountain National Park</dt>
-    <dd>1: One of the highest national parks in the nation.</dd>
-    <dd>2: The park's boundaries were established in 1915.</dd>
-    <dd>3: The Trail Ridge Road was built in the 1930's.</dd>
-    <dd>4: The peaks of the mountains may have snow while down in the plains will have summer temperatures.</dd>
-    <dd>5: The views are priceless.</dd>
-    <dd>6: The tallest peak in the park is 14,259 feet tall on Longs Peak.</dd>
-    <dd>7: There are elk, moose, mule deer, pronghorns, wolves, mountain sheep, mountain lions, and many more animals
-        who live there.
-    </dd>
-    <dd>8: The mountains and the wildlife bring peace.</dd>
-    <dd>9: The National Park is only one hour away from Denver, CO.</dd>
-    <dd>10: The Park is free to enter at night time.</dd>
+    <dd>In Colorado</dd>
+
+    <dt class="yellowstone">Yellow Stone</dt>
+    <dd>In Wyoming</dd>
+
+    <dt class="zion">Zion National Park</dt>
+    <dd>In Utah</dd>
 </dl>
+
+<button class="invis-toggle">Invisible Toggle</button>
 
 <script src="js/jquery-3.5.1.js"></script>
 <script>
@@ -64,19 +61,20 @@
     // adding class to dd elements
     $('dd').addClass('invisible');
 
-    // if DT is clicked, DD will appear
-    $(".rocky").click(function () {
-        $('.invisible').toggleClass('invisible');
-    });
+    // if invisible toggle button is selected the invisible class will toggle
+    $('.invis-toggle').click(function() {
+        $('dd').toggleClass('invisible');
+    })
 
-    // if individual DD is clicked, they will disappear
-    $('.invisible').click(function () {
-        $(this).toggleClass('invisible')
+    // if class rocky is clicked, it gets highlighted
+    $('.rocky').click(function () {
+        $('.rocky').toggleClass('highlighted')
     });
-
-    // if DT is clicked, it gets highlighted
-    $('dt').click(function () {
-        $(this).toggleClass('highlighted')
+    $('.yellowstone').click(function () {
+        $('.yellowstone').toggleClass('highlighted')
+    });
+    $('.zion').click(function () {
+        $('.zion').toggleClass('highlighted')
     });
 
     // putting invert class to National Parks header
