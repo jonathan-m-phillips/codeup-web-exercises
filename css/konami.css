@@ -3,15 +3,14 @@ h1 {
     justify-content: center;
 }
 
-.arrows-container {
+.body-container {
     position: fixed;
-    top: 280px;
-    border-color: white;
-    height: 300px;
-    width: 300px;
-    right: 330px;
+    top:112px;
+    left: 110px;
+    height: 400px;
+    width: 1330px;
+    border: 10px solid black;
 }
-
 
 #top-arrow, #right-arrow, #bottom-arrow, #left-arrow, #middle-arrow, #a-button, #b-button {
     height: 100px;
@@ -20,52 +19,71 @@ h1 {
 
 #top-arrow {
     position: fixed;
-    top: 251px;
-    left: 294px;
+    top: 181px;
+    left: 296px;
 }
 
 #right-arrow {
     position: fixed;
-    top: 350px;
-    left: 390px;
+    top: 280px;
+    left: 395px;
 }
 
 #middle-arrow {
     position: fixed;
-    top: 350px;
-    left: 294px;
+    top: 280px;
+    left: 295px;
 }
 
 #bottom-arrow {
     position: fixed;
-    top: 449px;
-    left: 294px;
+    top: 379px;
+    left: 296px;
 }
 
 #left-arrow {
     position: fixed;
-    top: 350px;
-    left: 195px;
-}
-
-#a-button {
-    position: fixed;
-    top: 350px;
-    right: 400px;
+    top: 280px;
+    left: 194px;
 }
 
 #b-button {
     position: fixed;
-    top: 310px;
+    top: 280px;
+    right: 400px;
+}
+
+#a-button {
+    position: fixed;
+    top: 280px;
     right: 260px;
 }
 
-.restart {
+#select {
     position: fixed;
-    top: 320px;
-    left: 750px;
+    height: 7%;
+    top: 229px;
+    left: 610px;
     font-size: 50px;
-    padding: 20px;
+    padding: 10px 30px 10px 30px;
     border: 10px solid black;
+}
+
+#start {
+    position: fixed;
+    height: 7%;
+    top: 229px;
+    left: 860px;
+    font-size: 50px;
+    padding: 10px 40px 10px 40px;
+    border: 10px solid black;
+}
+
+.mario-gif {
+    position: fixed;
+    height: 370px;
+    bottom: 0;
+    left: 610px;
+    z-index: -1;
 }
 

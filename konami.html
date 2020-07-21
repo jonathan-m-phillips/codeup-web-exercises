@@ -11,9 +11,22 @@
 
 <body>
 
+
+
+
+<!--   mario gif   -->
+<div class="mario-gif">
+    <iframe src="https://giphy.com/embed/6RsYcS66Iso0" width="400" height="408" frameBorder="0"
+            class="giphy-embed"></iframe>
+</div>
+
+<!--   mario audio   -->
 <audio src="audio/npc-yc_mario-win.wav"></audio>
 
+
+<!--   welecome   -->
 <h1 id="konami-header">Enter the konami code!</h1>
+
 
 <!--   wrapping the buttons into a container   -->
 <div class="body-container">
@@ -33,16 +46,29 @@
         <img src="img/b@330x.png" id="b-button">
     </div>
 
-    <!--   restart button   -->
-    <p class="restart" onclick="reloadPage();">Restart</p>
-
+    <!--   select button   -->
+    <div class="select-container">
+        <p id="select" onclick="reloadPage();">Select</p>
+    </div>
+    <!--    start button   -->
+    <div class="start-container">
+        <p id="start">Start</p>
+    </div>
 
 </div>
+
+
+
 
 <!--   linking to jquery locally   -->
 <script src="js/jquery-3.5.1.js"></script>
 
+
+
+<!--   custom js   -->
 <script>
+
+
 
     // creating arrays for allowed user input in konami code
     let allowedKeys = {
@@ -56,17 +82,6 @@
     };
 
 
-    // creating a buttons clicked object
-    // let buttonsClicked = {};
-    //
-    // $(document).ready(function () {
-    //     $('#top-arrow').click (function () {
-    //         buttonsClicked.push(allowedKeys[1]);
-    //         console.log(buttonsClicked);
-    //     });
-    // });
-    //
-    // console.log(buttonsClicked);
 
     // konami code array
     let konamiCode = ["up", "up", "down", "down", "left", "right", "left", "right", "b", "a", "enter"];
@@ -78,98 +93,284 @@
     // alert if user input correct code
     let correctCode = "You are granted 30 extra lives!";
 
+    // hiding the gifs added to the page
+    $('.konami-gif').hide();
+    $('.mario-gif').hide();
+
+
+
+    // making the window clickable, such as using a controller
+    $('#left-arrow').click(function () {
+        jQuery.event.trigger({type: 'keydown', keyCode: 37});
+    });
+    $('#top-arrow').click(function () {
+        jQuery.event.trigger({type: 'keydown', keyCode: 38});
+    });
+    $('#right-arrow').click(function () {
+        jQuery.event.trigger({type: 'keydown', keyCode: 39});
+    });
+    $('#bottom-arrow').click(function () {
+        jQuery.event.trigger({type: 'keydown', keyCode: 40});
+    });
+    $('#a-button').click(function () {
+        jQuery.event.trigger({type: 'keydown', keyCode: 65});
+    });
+    $('#b-button').click(function () {
+        jQuery.event.trigger({type: 'keydown', keyCode: 66});
+    });
+    $('#start').click(function () {
+        jQuery.event.trigger({type: 'keydown', keyCode: 13});
+    });
+
+
 
     // keydown event function
     $(document).keydown(function (e) {
 
-        // if a button is entered, a button image will appear and the rest will disappear
-        if (e.code === 'ArrowUp') {
-            $('#top-arrow').show();
-            $('#left-arrow').hide();
-            $('#right-arrow').hide();
-            $('#bottom-arrow').hide();
-            $('#b-button').hide();
-            $('#a-button').hide();
-            $('#middle-arrow').hide();
-        } else if (e.code === 'ArrowDown') {
-            $('#top-arrow').hide();
-            $('#left-arrow').hide();
-            $('#right-arrow').hide();
-            $('#bottom-arrow').show();
-            $('#b-button').hide();
-            $('#a-button').hide();
-            $('#middle-arrow').hide();
-        } else if (e.code === 'ArrowLeft') {
-            $('#top-arrow').hide();
-            $('#left-arrow').show();
-            $('#right-arrow').hide();
-            $('#bottom-arrow').hide();
-            $('#b-button').hide();
-            $('#a-button').hide();
-            $('#middle-arrow').hide();
-        } else if (e.code === 'ArrowRight') {
-            $('#top-arrow').hide();
-            $('#left-arrow').hide();
-            $('#right-arrow').show();
-            $('#bottom-arrow').hide();
-            $('#b-button').hide();
-            $('#a-button').hide();
-            $('#middle-arrow').hide();
-        } else if (e.code === 'KeyB') {
-            $('#top-arrow').hide();
-            $('#left-arrow').hide();
-            $('#right-arrow').hide();
-            $('#bottom-arrow').hide();
-            $('#b-button').show();
-            $('#a-button').hide();
-            $('#middle-arrow').hide();
-        } else if (e.code === 'KeyA') {
-            $('#top-arrow').hide();
-            $('#left-arrow').hide();
-            $('#right-arrow').hide();
-            $('#bottom-arrow').hide();
-            $('#b-button').hide();
-            $('#a-button').show();
-            $('#middle-arrow').hide();
-        } else if (e.code === 'Enter') {
-            $('#top-arrow').show();
-            $('#left-arrow').show();
-            $('#right-arrow').show();
-            $('#bottom-arrow').show();
-            $('#b-button').show();
-            $('#a-button').show();
-            $('#middle-arrow').show();
-        } else {
-            alert('That is not a real control! Click restart to start over.');
-        }
+            // if a button is entered, the button will get smaller indicated it has been pressed
+            if (e.code === 'ArrowUp') {
 
-        // adding user input to key
-        let key = allowedKeys[e.keyCode];
-        // let keys = allowedKeys[buttonsClicked];
 
-        // debugging keys
-        // console.log(key)
+                $('#top-arrow').css({
+                    'height': '90px',
+                    'left': '300px'
+                });
+                $('#bottom-arrow').css({
+                    'height': '',
+                    'top': '',
+                    'left': ''
+                });
+                $('#left-arrow').css({
+                    'height': ''
+                });
+                $('#right-arrow').css({
+                    'height': '',
+                    'top': '',
+                    'left': ''
+                });
+                $('#b-button').css({
+                    'height': ''
+                });
+                $('#a-button').css({
+                    'height': ''
+                });
+                $('#start').css({
+                    'height': ''
+                });
 
-        // requiredKey set equal to current position in the konami code array
-        let requiredKey = konamiCode[currentPosition];
 
-        // incrementing current position in konami code if the required key is entered
-        if (key == requiredKey) {// || keys == requiredKey) {
-            currentPosition++
+            } else if (e.code === 'ArrowDown') {
 
-            // if current position of konami code is the same length as the konami code call function cheatMode and reset current position to 0 to restart the code
-            if (currentPosition == konamiCode.length) {
-                cheatMode();
+
+                $('#top-arrow').css({
+                    'height': '',
+                    'left': ''
+                });
+                $('#bottom-arrow').css({
+                    'height': '90px',
+                    'top': '386px',
+                    'left': '300px'
+                });
+                $('#left-arrow').css({
+                    'height': ''
+                });
+                $('#right-arrow').css({
+                    'height': '',
+                    'top': '',
+                    'left': ''
+                });
+                $('#b-button').css({
+                    'height': ''
+                });
+                $('#a-button').css({
+                    'height': ''
+                });
+                $('#start').css({
+                    'height': '7%'
+                });
+
+
+            } else if (e.code === 'ArrowLeft') {
+
+
+                $('#top-arrow').css({
+                    'height': '',
+                    'left': ''
+                });
+                $('#bottom-arrow').css({
+                    'height': '',
+                    'top': '',
+                    'left': ''
+                });
+                $('#left-arrow').css({
+                    'height': '90px'
+                });
+                $('#right-arrow').css({
+                    'height': '',
+                    'top': '',
+                    'left': ''
+                });
+                $('#b-button').css({
+                    'height': ''
+                });
+                $('#a-button').css({
+                    'height': ''
+                });
+                $('#start').css({
+                    'height': ''
+                });
+
+
+            } else if (e.code === 'ArrowRight') {
+
+
+                $('#top-arrow').css({
+                    'height': '',
+                    'left': ''
+                });
+                $('#bottom-arrow').css({
+                    'height': '',
+                    'top': '',
+                    'left': ''
+                });
+                $('#left-arrow').css({
+                    'height': ''
+                });
+                $('#right-arrow').css({
+                    'height': '90px',
+                    'top': '286px',
+                    'left': '405px'
+                });
+                $('#b-button').css({
+                    'height': ''
+                });
+                $('#a-button').css({
+                    'height': ''
+                });
+                $('#start').css({
+                    'height': ''
+                });
+
+
+            } else if (e.code === 'KeyB') {
+
+
+                $('#top-arrow').css({
+                    'height': '',
+                    'left': ''
+                });
+                $('#bottom-arrow').css({
+                    'height': '',
+                    'top': '',
+                    'left': ''
+                });
+                $('#left-arrow').css({
+                    'height': ''
+                });
+                $('#right-arrow').css({
+                    'height': '',
+                    'top': '',
+                    'left': ''
+                });
+                $('#b-button').css({
+                    'height': '90px'
+                });
+                $('#a-button').css({
+                    'height': ''
+                });
+                $('#start').css({
+                    'height': ''
+                });
+
+
+            } else if (e.code === 'KeyA') {
+
+
+                $('#top-arrow').css({
+                    'height': '',
+                    'left': ''
+                });
+                $('#bottom-arrow').css({
+                    'height': '',
+                    'top': '',
+                    'left': ''
+                });
+                $('#left-arrow').css({
+                    'height': ''
+                });
+                $('#right-arrow').css({
+                    'height': '',
+                    'top': '',
+                    'left': ''
+                });
+                $('#b-button').css({
+                    'height': ''
+                });
+                $('#a-button').css({
+                    'height': '90px'
+                });
+                $('#start').css({
+                    'height': ''
+                });
+
+
+            } else if (e.code === 'Enter') {
+                $('#top-arrow').css({
+                    'height': '',
+                    'left': ''
+                });
+                $('#bottom-arrow').css({
+                    'height': '',
+                    'top': '',
+                    'left': ''
+                });
+                $('#left-arrow').css({
+                    'height': ''
+                });
+                $('#right-arrow').css({
+                    'height': '',
+                    'top': '',
+                    'left': ''
+                });
+                $('#b-button').css({
+                    'height': ''
+                });
+                $('#a-button').css({
+                    'height': ''
+                });
+                $('#start').css({
+                    'height': '8%'
+                });
+
+            }
+
+            // adding user input to key
+            let key = allowedKeys[e.keyCode];
+
+            // debugging keys
+            // console.log(key)
+
+            // requiredKey set equal to current position in the konami code array
+            let requiredKey = konamiCode[currentPosition];
+
+            // incrementing current position in konami code if the required key is entered
+            if (key == requiredKey) {
+                currentPosition++
+
+                // if current position of konami code is the same length as the konami code call function cheatMode and reset current position to 0 to restart the code
+                if (currentPosition == konamiCode.length) {
+                    cheatMode();
+                    currentPosition = 0;
+                }
+            }
+
+            // if current position does not equal full length of konami then reset to the beginning
+            else {
                 currentPosition = 0;
             }
-        }
 
-        // if current position does not equal full length of konami then reset to the beginning
-        else {
-            currentPosition = 0;
         }
-
-    });
+    );
 
     // cheatMode set to alert correctCode if all keys entered correctly
     function cheatMode() {
@@ -184,18 +385,13 @@
         let audio = $("audio")[0];
         audio.play();
 
-
-        $('.restart').on("click", function () {
-            $('body').css({
-                'backgroundColor': 'white',
-                'color': 'black'
-            })
-        });
+        $('.konami-gif').show();
+        $('.mario-gif').show();
 
     }
 
     function reloadThePage() {
-        $('.restart').click(function () {
+        $('#select').click(function () {
             window.location.reload(true);
         });
     }
