@@ -153,121 +153,89 @@
 <script>
 
 
-    // adding class to dd elements
-    $('dd').addClass('invisible');
+    $(document).ready(function () {
+
+        // adding class to dd elements
+        $('dd').addClass('invisible');
 
 
-    // if invisible toggle button is selected the invisible class will toggle
-    $('.invis-toggle').click(function () {
-        $('dd').toggleClass('invisible');
-    })
+        // if invisible toggle button is selected the invisible class will toggle
+        $('.invis-toggle').click(function () {
+            $('dd').toggleClass('invisible');
+        })
 
 
-
-
-    // if class rocky is clicked, it gets highlighted
-    $('.rocky').click(function () {
-        $('.rocky').toggleClass('highlighted')
-    });
-    $('.yellowstone').click(function () {
-        $('.yellowstone').toggleClass('highlighted')
-    });
-    $('.zion').click(function () {
-        $('.zion').toggleClass('highlighted')
-    });
-
-
-
-
-    // putting invert class to National Parks header
-    //   changing color of background
-    $('.park').click(function () {
-        $('body').toggleClass('invert');
-    });
-
-
-
-
-    // adding class li-bg to all of the last li in the ul
-    $('.li-button').click(function () {
-
-        if ($('.rocky-ul').children('li').last().hasClass('li-bg')
-            || $('.yellowstone-ul').children('li').last().hasClass('li-bg')
-            || $('.zion-ul').children('li').last().hasClass('li-bg')) {
-            $('.rocky-ul').children('li').last().removeClass('li-bg');
-            $('.yellowstone-ul').children('li').last().removeClass('li-bg');
-            $('.zion-ul').children('li').last().removeClass('li-bg');
-        } else {
-            $('.rocky-ul').children('li').last().addClass('li-bg');
-            $('.yellowstone-ul').children('li').last().addClass('li-bg');
-            $('.zion-ul').children('li').last().addClass('li-bg');
-        }
-
-    });
-
-
-
-
-    // if each h3 is clicked in ul the li will bold
-    $('.rocky-ul').children('h3').click(function () {
-        $('.rocky-ul').children('li').toggleClass('li-bold');
-    });
-    $('.yellowstone-ul').children('h3').click(function () {
-        $('.yellowstone-ul').children('li').toggleClass('li-bold');
-    });
-    $('.zion-ul').children('h3').click(function () {
-        $('.zion-ul').children('li').toggleClass('li-bold');
-    });
-
-
-
-
-    // if any li is selected, the first li of the list will turn blue
-    $('.rocky-ul').children('li').click(function () {
-        $('.rocky-ul').children('li').first().toggleClass('li-blue')
-    });
-    $('.yellowstone-ul').children('li').click(function () {
-        $('.yellowstone-ul').children('li').first().toggleClass('li-blue')
-    });
-    $('.zion-ul').children('li').click(function () {
-        $('.zion-ul').children('li').first().toggleClass('li-blue')
-    });
-
-
-
-
-    // toggling button for the div1 button
-    $('.div1-btn').click(function () {
-        $('.div1').toggleClass('div1-new')
-    });
-
-
-
-
-    // randomizing background for div2 button
-    var safeColors = ['midnightblue', 'deeppink'];
-    var rand = function () {
-        return Math.floor(Math.random() * 2);
-    };
-    var randomColor = function () {
-        var randBG = safeColors[rand()];
-        return "" + randBG;
-    };
-
-
-    $('.div2-btn').click(function () {
-        $('.div2').each(function () {
-            $(this).css('background', randomColor());
+        // if class rocky is clicked, it gets highlighted
+        $('.rocky').click(function () {
+            $('.rocky').toggleClass('highlighted')
         });
+        $('.yellowstone').click(function () {
+            $('.yellowstone').toggleClass('highlighted')
+        });
+        $('.zion').click(function () {
+            $('.zion').toggleClass('highlighted')
+        });
+
+
+        // putting invert class to National Parks header
+        //   changing color of background
+        $('.park').click(function () {
+            $('body').toggleClass('invert');
+        });
+
+
+        // adding class li-bg to all of the last li in the ul
+        $('.li-button').click(function () {
+
+            $('ul').each(function () {
+                $(this).children().last().toggleClass('li-bg')
+            })
+
+        });
+
+
+        // if h3 is clicked, the children li will turn bold
+        $('h3').click(function () {
+            $(this).next().children().toggleClass('li-bold');
+        });
+
+
+        // if the first li of each national park is clicked it will turn light blue
+        $('li').click(function () {
+            $(this).parent().children().first().next().toggleClass('li-blue')
+        });
+
+
+        // toggling button for the div1 button
+        $('.div1-btn').click(function () {
+            $('.div1').toggleClass('div1-new')
+        });
+
+
+        // randomizing background for div2 button
+        var safeColors = ['midnightblue', 'deeppink'];
+        var rand = function () {
+            return Math.floor(Math.random() * 2);
+        };
+        var randomColor = function () {
+            var randBG = safeColors[rand()];
+            return "" + randBG;
+        };
+
+
+        $('.div2-btn').click(function () {
+            $('.div2').each(function () {
+                $(this).css('background', randomColor());
+            });
+        });
+
+
+        // toggling button for the div3 button
+        $('.div3-btn').click(function () {
+            $('.div3').toggleClass('div3-new')
+        });
+
     });
-
-
-
-    // toggling button for the div3 button
-    $('.div3-btn').click(function () {
-        $('.div3').toggleClass('div3-new')
-    });
-
 
 
 </script>
