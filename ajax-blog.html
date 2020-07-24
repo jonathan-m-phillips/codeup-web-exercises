@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
     <meta charset="UTF-8">
     <title>AJAX Blog</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
 </head>
+
+
 <body>
-<div id="posts"></div>
+<div class="jumbotron jumbotron-fluid m-0">
+    <div class="container">
+        <h1 class="display-4 d-flex justify-content-center">Welcome to My Blog</h1>
+    </div>
+</div>
+
+<table id="posts" class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Content</th>
+        <th scope="col">Categories</th>
+        <th scope="col">Date</th>
+    </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
 
 
 <!-- JS, Popper.js, and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
@@ -23,13 +49,6 @@
 
 <script>
 
-    // TODO: Create an AJAX GET request for the file under data/inventory.json
-    // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
-
-
     (function () {
 
         "use strict";
@@ -37,16 +56,16 @@
 
         // $('.reload').click(function (e) {
         //     e.preventDefault();
-            $.get('data/blog.json').done(function (data) {
-                $('#posts').html('');
-                data.forEach(function (product) {
-                    $('#posts').append(
-                        "<tr>"
-                        + "<th>" + product.title + "</th>"
-                        + "<th>" + product.quantity + "</th>"
-                        + "<th>" + "$" + product.price + "</th>"
-                        + "<th>" + product.categories + "</th>" +
-                        "</tr>");
+        $.get('data/blog.json').done(function (data) {
+            $('#posts').html('');
+            data.forEach(function (blog) {
+                $('#posts').append(
+                    "<tr>"
+                    + "<th>" + blog.title + "</th>"
+                    + "<th>" + blog.content + "</th>"
+                    + "<th>" + blog.categories + "</th>"
+                    + "<th>" + blog.date + "</th>" +
+                    "</tr>");
                 // });
             });
         });
