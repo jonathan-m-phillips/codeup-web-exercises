@@ -1,12 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>AJAX Blog</title>
+    <title>Online Store</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
 </head>
 <body>
-<div id="posts"></div>
 
+<div class="jumbotron jumbotron-fluid m-0">
+    <div class="container">
+        <h1 class="display-4 d-flex justify-content-center">My Tool Store</h1>
+    </div>
+</div>
+
+<table id="products" class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Categories</th>
+    </tr>
+    </thead>
+    <tbody id="insertProducts" ></tbody>
+</table>
+
+<button type="button" class="btn btn-primary reload">Reload</button>
 
 <!-- JS, Popper.js, and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -35,24 +57,25 @@
         "use strict";
 
 
-        // $('.reload').click(function (e) {
-        //     e.preventDefault();
-            $.get('data/blog.json').done(function (data) {
-                $('#posts').html('');
+        $('.reload').click(function (e) {
+            e.preventDefault();
+            $.get('data/inventory.json').done(function (data) {
+                $('#insertProducts').html('');
                 data.forEach(function (product) {
-                    $('#posts').append(
+                    $('#insertProducts').append(
                         "<tr>"
                         + "<th>" + product.title + "</th>"
                         + "<th>" + product.quantity + "</th>"
                         + "<th>" + "$" + product.price + "</th>"
                         + "<th>" + product.categories + "</th>" +
                         "</tr>");
-                // });
+                });
             });
         });
 
     })();
 </script>
+
 
 </body>
 </html>
