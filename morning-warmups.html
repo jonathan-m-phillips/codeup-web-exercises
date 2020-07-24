@@ -386,7 +386,10 @@
     //   return the number passed. Any non-number passed should have the function return null.
 
     const fizzOrBuzz = function (num) {
-        if (num % 3 === 0 && num % 5 === 0) {
+        if (typeof num !== "number") {
+            return null;
+        }
+        else if (num % 3 === 0 && num % 5 === 0) {
             return "fizzbuzz";
         }
         else if (num % 3 === 0) {
@@ -394,9 +397,6 @@
         }
         else if (num % 5 === 0) {
             return "buzz";
-        }
-        else if (typeof num !== "number") {
-            return null;
         }
         else {
             return num;
@@ -407,6 +407,7 @@
     console.log(fizzOrBuzz(20));
     console.log(fizzOrBuzz(15));
     console.log(fizzOrBuzz('hello'));
+    console.log(fizzOrBuzz(null));
 
 
 
