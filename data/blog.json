@@ -16,5 +16,14 @@
             "sugar"
         ],
         "date": "February 14, 2015"
+    },
+    {
+        "title": "Today is the Day",
+        "content": "It is a nice day outside, as always in San Antonio, TX.",
+        "categories": [
+            "thoughts"
+        ],
+        "date": "July, 24, 2020"
     }
+
 ]

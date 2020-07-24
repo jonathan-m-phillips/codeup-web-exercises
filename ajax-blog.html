@@ -29,8 +29,10 @@
         <th scope="col">Date</th>
     </tr>
     </thead>
-    <tbody id="insertProducts"></tbody>
+    <tbody id="insertPosts"></tbody>
 </table>
+
+<button type="button" class="btn btn-primary reload">Reload</button>
 
 
 <!-- JS, Popper.js, and jQuery -->
@@ -54,19 +56,20 @@
         "use strict";
 
 
-        // $('.reload').click(function (e) {
-        //     e.preventDefault();
-        $.get('data/blog.json').done(function (data) {
-            $('#posts').html('');
-            data.forEach(function (blog) {
-                $('#posts').append(
-                    "<tr>"
-                    + "<th>" + blog.title + "</th>"
-                    + "<th>" + blog.content + "</th>"
-                    + "<th>" + blog.categories + "</th>"
-                    + "<th>" + blog.date + "</th>" +
-                    "</tr>");
-                // });
+        $('.reload').click(function (e) {
+            e.preventDefault();
+            $.get('data/blog.json').done(function (data) {
+                $('#insertPosts').html('');
+                data.forEach(function (blog) {
+                    $('#insertPosts').append(
+                        "<tr>"
+                        + "<th>" + blog.title + "</th>"
+                        + "<th>" + blog.content + "</th>"
+                        + "<th>" + blog.categories + "</th>"
+                        + "<th>" + blog.date + "</th>" +
+                        "</tr>");
+                    // });
+                });
             });
         });
 
