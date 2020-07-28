@@ -10,18 +10,42 @@ $.get("http://api.openweathermap.org/data/2.5/onecall", {
     part: "daily"
 }).done(function (data) {
     function weather(lat, lon) {
+
         mapboxgl.accessToken = mapboxKey;
-        let map = new mapboxgl.Map({
+        var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v9',
-            zoom: 9,
-            center: [-98.4936, 29.4241]
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-98.4936, 29.4241],
+            zoom: 8
         });
 
-        let marker = new mapboxgl.Marker()
-            .setLngLat([-98.4936, 29.4241])
-            .addTo(map);
+        var geojson = {
+            type: 'FeatureCollection',
+            features: [{
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [-98.4936, 29.4241]
+                },
+                properties: {
+                    title: 'Mapbox',
+                    description: 'San Antonio, TX'
+                }
+            }]
+        };
 
+        // add markers to map
+        geojson.features.forEach(function(marker) {
+
+            // create a HTML element for each feature
+            var el = document.createElement('div');
+            el.className = 'marker';
+
+            // make a marker for each feature and add to the map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .addTo(map);
+        });
 
         // SECTION 1 - CURRENT DATE
 
@@ -325,26 +349,3 @@ $.get("http://api.openweathermap.org/data/2.5/onecall", {
 
     draggingMarker();
 });
-//
-//
-//
-//     marker.on('dragend', draggingMarker);
-//
-//
-//
-// creating an object for the map
-//
-//
-//     map.addControl(new mapboxgl.NavigationControl());
-//     $('#geocoder').appendChild(geocoder.onAdd(map));
-//
-//
-//
-//         .setLngLat([-98.4936, 29.4241])
-//         .addTo(map);
-//
-//
-//
-//
-//
-//
