@@ -1,5 +1,7 @@
 "use strict";
 
+ajaxRequest(29.4241, -98.4936)
+
 mapboxgl.accessToken = mapboxKey;
 var coordinates = document.getElementById('coordinates');
 var map = new mapboxgl.Map({
@@ -12,15 +14,9 @@ var map = new mapboxgl.Map({
 map.addControl(
     new MapboxGeocoder({
         accessToken: mapboxKey,
-        mapboxgl: mapboxgl,
-        marker: {
-            color: 'blue'
-        },
-
+        mapboxgl: mapboxgl
     })
-).on('result', function(e) {
-    console.log(e.getFlyTo);
-});
+);
 
 var marker = new mapboxgl.Marker({
     draggable: true
