@@ -12,9 +12,15 @@ var map = new mapboxgl.Map({
 map.addControl(
     new MapboxGeocoder({
         accessToken: mapboxKey,
-        mapboxgl: mapboxgl
+        mapboxgl: mapboxgl,
+        marker: {
+            color: 'blue'
+        },
+
     })
-);
+).on('result', function(e) {
+    console.log(e.getFlyTo);
+});
 
 var marker = new mapboxgl.Marker({
     draggable: true
@@ -174,8 +180,6 @@ function ajaxRequest(lat, long) {
         }
     )
 }
-
-ajaxRequest(29.4241, -98.4963)
 
 function reverseGeocode (lat, long) {
     $.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${long},${lat}.json`, {
