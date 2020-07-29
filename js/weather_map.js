@@ -11,12 +11,16 @@ var map = new mapboxgl.Map({
     zoom: 7
 });
 
-map.addControl(
-    new MapboxGeocoder({
-        accessToken: mapboxKey,
-        mapboxgl: mapboxgl
-    })
-);
+
+var geoCoder = new MapboxGeocoder({
+    accessToken: mapboxKey,
+    mapboxgl: mapboxgl,
+    marker: marker
+}).addTo(map);
+
+// geoCoder.on('result', function(e) {
+//     console.log(e)
+// })
 
 var marker = new mapboxgl.Marker({
     draggable: true
