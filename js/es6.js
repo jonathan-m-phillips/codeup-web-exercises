@@ -94,7 +94,8 @@ let list = '<ul>';
 // });
 
 for (let developer of developers) {
-  list += '<li>' + developer + '</li>';
+  list += `<li>${developer}</li>`;
 }
+console.log(list)
 
 list += '</ul>';
