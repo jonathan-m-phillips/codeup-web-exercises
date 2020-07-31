@@ -27,7 +27,6 @@ let wait = function (time) {
                 reject(alert("Error"));
             }
         }, time);
-        console.log(time)
     });
 }
 
