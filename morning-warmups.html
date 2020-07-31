@@ -385,30 +385,78 @@
     //   the famous FizzBuzz exercise. Any number that doesn’t match these conditions should
     //   return the number passed. Any non-number passed should have the function return null.
 
-    const fizzOrBuzz = function (num) {
-        if (typeof num !== "number") {
-            return null;
-        }
-        else if (num % 3 === 0 && num % 5 === 0) {
-            return "fizzbuzz";
-        }
-        else if (num % 3 === 0) {
-            return "fizz";
-        }
-        else if (num % 5 === 0) {
-            return "buzz";
-        }
-        else {
-            return num;
-        }
-    }
+    // const fizzOrBuzz = function (num) {
+    //     if (typeof num !== "number") {
+    //         return null;
+    //     }
+    //     else if (num % 3 === 0 && num % 5 === 0) {
+    //         return "fizzbuzz";
+    //     }
+    //     else if (num % 3 === 0) {
+    //         return "fizz";
+    //     }
+    //     else if (num % 5 === 0) {
+    //         return "buzz";
+    //     }
+    //     else {
+    //         return num;
+    //     }
+    // }
+    //
+    // console.log(fizzOrBuzz(9));
+    // console.log(fizzOrBuzz(20));
+    // console.log(fizzOrBuzz(24));
+    // console.log(fizzOrBuzz(15));
+    // console.log(fizzOrBuzz('hello'));
+    // console.log(fizzOrBuzz(null));
 
-    console.log(fizzOrBuzz(9));
-    console.log(fizzOrBuzz(20));
-    console.log(fizzOrBuzz(24));
-    console.log(fizzOrBuzz(15));
-    console.log(fizzOrBuzz('hello'));
-    console.log(fizzOrBuzz(null));
+
+    // Using the reduce method, set a variable for the element from the array
+    //   posted in Slack that has the largest heightInMM property.
+
+    var hamsters = [
+        {
+            name: "Hamtaro",
+            heightInMM: 86,
+            fur: ['orange', 'white'],
+            gender: "male",
+            dateOfBirth: "August 6"
+        } , {
+            name: "Bijou",
+            heightInMM: 75,
+            fur: ['white'],
+            gender: "female",
+            dateOfBirth: "July 10"
+        } , {
+            name: "Oxnard",
+            heightInMM: 100,
+            fur: ['grey', 'white'],
+            gender: "male",
+            dateOfBirth: "May 3"
+        } , {
+            name: "Boss",
+            heightInMM: 120,
+            fur: ['brown', 'white'],
+            gender: "male",
+            dateOfBirth: "Spetember 21"
+        } , {
+            name: "Snoozer",
+            heightInMM: 85,
+            fur: ['brown', 'white', "pink"],
+            gender: "male",
+            dateOfBirth: "January 14"
+        }
+    ];
+
+    let tallestHamster = hamsters.reduce((tallHamster, hamster) => {
+        if (hamster.heightInMM > tallHamster.heightInMM) {
+            return hamster
+        } else {
+            return tallHamster;
+        }
+    }, {heightInMM: 0});
+
+    console.log(tallestHamster)
 
 
 
