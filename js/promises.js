@@ -8,7 +8,6 @@ const myPromiseFunction = function (username) {
     return githubPromise;
 }
 
-
 let myPromise = myPromiseFunction('jonathan-m-phillips');
 myPromise.then(response => response.json()).then(data => console.log(data[0].created_at));
 
@@ -31,7 +30,6 @@ let wait = function (time) {
         console.log(time)
     });
 }
-
 
 wait(1000).then(() => console.log('You\'ll see this after 1 second'));
 wait(3000).then(() => console.log('You\'ll see this after 3 seconds'));
