@@ -37,37 +37,63 @@ const users = [
 ];
 
 
-let userWithThreePlusLanguages = users.filter((user) => user.languages.length > 2)
+
+// 2
+let userWithThreePlusLanguages = users.filter((user) => user.languages.length > 2);
+console.log(userWithThreePlusLanguages);
 
 
-let usersEmails = users.map((user) => user.email)
+
+// 3
+let usersEmails = users.map(user => user.email);
+console.log(usersEmails);
 
 
-let totalUsersExperience = users.reduce((experience, user) => {
-    return experience + user.yearsOfExperience
-}, 0)
 
-console.log(totalUsersExperience)
+// 4
+let totalUsersExperience = users.reduce((experience, user) => experience + user.yearsOfExperience, 0);
+console.log(totalUsersExperience);
 
 let averageExperience = totalUsersExperience / users.length;
+console.log(averageExperience);
 
 
-let longestEmail = users.reduce((emails, user) => {
-    if (user.email.length > 17) {
-        return user;
+
+// 5
+let longestEmail = users.reduce((longest, user) => {
+    if (user.email.length > longest.length) {
+        return user.email;
+    } else {
+        return longest;
     }
-}, 0)
-
+}, "");
 console.log(longestEmail)
 
 
-let usersNames = users.reduce((str, user) => {
-    if (user.name) {
-        return `The user names are ${str}${user.name}, `
-    } else  {
-        return "hello"
-    }
-}, "");
 
-console.log(usersNames)
+
+// 6
+let listOfUsers = users.reduce((names, user, index, arr) => {
+    if (index === arr.length - 1) {
+        return `${names}${user.name}.`
+    } else {
+        return `${names}${user.name}, `
+    }
+}, "The list of users: ");
+
+console.log(listOfUsers);
+
+
+
+
+// bonus
+let uniqueLanguageList = users.reduce((language, user) => {
+    user.languages.forEach(i => {
+      if (language.indexOf(i) === -1) {
+          language.push(i);
+      }
+    })
+    return language;
+}, [])
+console.log(uniqueLanguageList);
 
