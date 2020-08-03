@@ -2,15 +2,30 @@
 
 
 // taking the API from Github to get a users last commit time but passing the username into the function
-const myPromiseFunction = function (username) {
-    let url = `https://api.github.com/users/${username}/events/public`;
-    let githubPromise = fetch(url, {headers: {'Authorization': GITHUB_KEY}});
-    return githubPromise;
+// const myPromiseFunction = function (username) {
+//     let url = `https://api.github.com/users/${username}/events/public`;
+//     let githubPromise = fetch(url, {headers: {'Authorization': GITHUB_KEY}});
+//     return githubPromise;
+// }
+//
+// let myPromise = myPromiseFunction('jonathan-m-phillips');
+// myPromise.then(response => response.json()).then(data => console.log(data[0].created_at));
+
+
+const lastDateOfCommit = username => {
+    return fetch(`https://api.github.com/users/${username}/events/public`, {headers: {'Authorization': GITHUB_KEY}}).then(resp => resp.json()).then(data => {
+        let date = "";
+        for (let datum of data) {
+            if (datum.type === "PushEvent") {
+                date = datum.created_at;
+                break;
+            }
+        }
+        return date;
+    }).then(date => document.getElementsByTagName("body")[0].innerHTML = date);
 }
 
-let myPromise = myPromiseFunction('jonathan-m-phillips');
-myPromise.then(response => response.json()).then(data => console.log(data[0].created_at));
-
+lastDateOfCommit('jonathan-m-phillips')
 
 
 
