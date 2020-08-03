@@ -30,20 +30,25 @@ lastDateOfCommit('jonathan-m-phillips')
 
 
 // setting a timeout inside of promise to occur whenever the function reaches a set amount of time set in the parameter
-let wait = function (time) {
+// let wait = function (time) {
+//
+//     return new Promise ((resolve, reject) => {
+//         setTimeout(() => {
+//             if (time === 1000) {
+//                 resolve(alert("One second"));
+//             } else if (time === 3000) {
+//                 resolve(alert("Three seconds"));
+//             } else {
+//                 reject(alert("Error"));
+//             }
+//         }, time);
+//     });
+// }
 
-    return new Promise ((resolve, reject) => {
-        setTimeout(() => {
-            if (time === 1000) {
-                resolve(alert("One second"));
-            } else if (time === 3000) {
-                resolve(alert("Three seconds"));
-            } else {
-                reject(alert("Error"));
-            }
-        }, time);
-    });
-}
+const wait = (time) => new Promise (resolve => setTimeout(() => {
+    resolve(`You'll see this message after ${time} millisecond(s).`)
+}, time));
 
-wait(1000).then(() => console.log('You\'ll see this after 1 second'));
-wait(3000).then(() => console.log('You\'ll see this after 3 seconds'));
+
+wait(1000).then((message) => console.log(message));
+wait(3000).then((message) => console.log(message));
