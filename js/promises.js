@@ -4,7 +4,7 @@
 // taking the API from Github to get a users last commit time but passing the username into the function
 const myPromiseFunction = function (username) {
     let url = `https://api.github.com/users/${username}/events/public`;
-    let githubPromise = fetch(url, {headers: {'Authorization': PERSONAL_ACCESS_KEY}});
+    let githubPromise = fetch(url, {headers: {'Authorization': GITHUB_KEY}});
     return githubPromise;
 }
 
