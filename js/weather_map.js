@@ -12,21 +12,44 @@ var map = new mapboxgl.Map({
 });
 
 
-var geoCoder = new MapboxGeocoder({
-    accessToken: mapboxKey,
-    mapboxgl: mapboxgl,
-    marker: marker
-}).addTo(map);
-
-// geoCoder.on('result', function(e) {
-//     console.log(e)
-// })
-
 var marker = new mapboxgl.Marker({
     draggable: true
 })
     .setLngLat([-98.4936, 29.4241])
     .addTo(map);
+
+function reverseGeocode (lat, long) {
+    $.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${long},${lat}.json`, {
+        access_token: mapboxKey,
+        types: "place"
+    }).done (function (data) {
+        $('#place').html(data.features[0].place_name)
+    });
+}
+
+
+function onDragEnd() {
+    var lngLat = marker.getLngLat();
+    coordinates.style.display = 'block';
+    coordinates.innerHTML =
+        'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+    ajaxRequest(lngLat.lat, lngLat.lng)
+}
+
+$('#gbutton').click(function (e){
+    e.preventDefault();
+    var htmlString = $('#geokode').val();
+    geocode(htmlString, mapboxKey).then(function (coordinates){
+        console.log(coordinates)
+        ajaxRequest(coordinates[1], coordinates[0]);
+        map.flyTo({
+            center: [coordinates[0], coordinates[1]]
+        })
+    })
+})
+
+marker.on('dragend', onDragEnd);
+
 
 
 // using jquery to get the open weather map api
@@ -38,8 +61,6 @@ function ajaxRequest(lat, long) {
         units: "imperial",
         part: "daily"
     }).done(function (data) {
-
-
 
 
             // SECTION 1 - CURRENT DATE
@@ -85,17 +106,16 @@ function ajaxRequest(lat, long) {
             }
             capitalDescription();
 
-            // let forecastSunset = function() {
-            //     let date = new Date(forecastDT.sunset * 1000);
-            //     let options = {
-            //         hour: 'numeric',
-            //         minute: 'numeric',
-            //         hour12: true
-            //     };
-            //     let timeString = date.toLocaleString('en-US', options);
-            //     return timeString;
-            // }
-
+            let forecastSunset = function() {
+                let date = new Date(forecastDT.sunset * 1000);
+                let options = {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: true
+                };
+                let timeString = date.toLocaleString('en-US', options);
+                return timeString;
+            }
 
 
             // adding current weather
@@ -181,22 +201,6 @@ function ajaxRequest(lat, long) {
     )
 }
 
-function reverseGeocode (lat, long) {
-    $.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${long},${lat}.json`, {
-        access_token: mapboxKey,
-        types: "place"
-    }).done (function (data) {
-        $('#place').html(data.features[0].place_name)
-    });
-}
 
 
-function onDragEnd() {
-    var lngLat = marker.getLngLat();
-    coordinates.style.display = 'block';
-    coordinates.innerHTML =
-        'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
-    ajaxRequest(lngLat.lat, lngLat.lng)
-}
 
-marker.on('dragend', onDragEnd);
