@@ -459,6 +459,27 @@
     // console.log(tallestHamster)
 
 
+    function sayHello(name) {
+        return 'Hello, ' + name + '!';
+    }
+
+
+    const sayHello2 = (name) => `Hello, ${name}!`
+
+
+    console.log(sayHello('jon'))
+
+    console.log(sayHello2('zach'))
+
+
+    const p = new Promise((resolve, reject) => {
+        reject(3);
+    });
+
+    p.then(result => console.log(result));
+    p.catch(error => console.log('An error occured!'));
+
+
 
 
 </script>
